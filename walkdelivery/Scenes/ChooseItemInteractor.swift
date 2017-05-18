@@ -8,21 +8,30 @@
 
 import Foundation
 
-struct Item {
-	
-}
-
 protocol ChooseItemInteractorInput: class {
 	func requestItems()
 }
 
 protocol ChooseItemInteractorOutput: class {
-	func receive(items: [Item])
+	func receive(items: [ItemEntity])
 }
 
 class ChooseItemInteractor: ChooseItemInteractorInput {
 	
+	weak var output: ChooseItemInteractorOutput?
+	var itemsStoreService: ItemsStoreServiceProtocol?
+	
 	func requestItems() {
+		let request = ItemsRequest()
 		
+		itemsStoreService?.getItems(request: request) { [weak self] result in
+			
+			switch result {
+			case .Success(let items):
+				self?.output?.receive(items: items)
+			case .Failure(let error):
+				print("\(error)")
+			}
+		}
 	}
 }

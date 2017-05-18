@@ -10,28 +10,50 @@
 
 import XCTest
 
+class ChooseItemInteractorOutputMock: ChooseItemInteractorOutput {
+	
+	var items = [ItemEntity]()
+	
+	func receive(items: [ItemEntity]) {
+		self.items = items
+	}
+}
+
+class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
+	
+	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {
+		let items = [ItemEntity()]
+		completionHandler(.Success(items))
+	}
+}
+
 class ChooseItemInteractorTests: XCTestCase {
+	
+	var interactor: ChooseItemInteractor!
+	var interactorOutput: ChooseItemInteractorOutputMock!
+	var itemsStoreService: ItemsStoreServiceFake!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+		
+		interactor = ChooseItemInteractor()
+		interactorOutput = ChooseItemInteractorOutputMock()
+		itemsStoreService = ItemsStoreServiceFake()
+		
+		interactor.output = interactorOutput
+		interactor.itemsStoreService = itemsStoreService
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+		
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testRequestItemsToReceive() {
+		interactor.requestItems()
+		
+		let items = interactorOutput.items
+		
+		XCTAssertTrue(items.count > 0, "Items didn't receive")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

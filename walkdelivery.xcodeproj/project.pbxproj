@@ -17,6 +17,8 @@
 		55F77E371ECDC5780094EF0F /* ChooseItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E361ECDC5780094EF0F /* ChooseItemInteractor.swift */; };
 		55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */; };
 		55F77E4A1ECDC9BB0094EF0F /* ChooseItemInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E491ECDC9BB0094EF0F /* ChooseItemInteractorTests.swift */; };
+		55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */; };
+		55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E4E1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift */; };
 		DB7EA1AA8F6F1F93BA1F252A /* Pods_walkdelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07028FD978B83E0F7B66506 /* Pods_walkdelivery.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F77E431ECDC9950094EF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55F77E491ECDC9BB0094EF0F /* ChooseItemInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItemInteractorTests.swift; sourceTree = "<group>"; };
+		55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsStoreService.swift; sourceTree = "<group>"; };
+		55F77E4E1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsStoreServiceProtocol.swift; sourceTree = "<group>"; };
 		966417674724C99A7EB57AFE /* Pods-walkdeliveryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walkdeliveryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-walkdeliveryTests/Pods-walkdeliveryTests.release.xcconfig"; sourceTree = "<group>"; };
 		AFDF9E635457BE0DEBFC8880 /* Pods-walkdeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walkdeliveryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-walkdeliveryTests/Pods-walkdeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B07028FD978B83E0F7B66506 /* Pods_walkdelivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_walkdelivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,7 @@
 		555A1F6A1ECB1EBB00DA7A73 /* walkdelivery */ = {
 			isa = PBXGroup;
 			children = (
+				55F77E4B1ECDCE900094EF0F /* Services */,
 				55F77E351ECDC54B0094EF0F /* Scenes */,
 				555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */,
 				555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */,
@@ -131,6 +136,15 @@
 				55F77E491ECDC9BB0094EF0F /* ChooseItemInteractorTests.swift */,
 			);
 			path = walkdeliveryTests;
+			sourceTree = "<group>";
+		};
+		55F77E4B1ECDCE900094EF0F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				55F77E4E1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift */,
+				55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A60095FC7B0049A99091DC98 /* Frameworks */ = {
@@ -361,6 +375,8 @@
 				55F77E371ECDC5780094EF0F /* ChooseItemInteractor.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
 				555A1F6E1ECB1EBB00DA7A73 /* ViewController.swift in Sources */,
+				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,
+				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,6 +596,7 @@
 				55F77E481ECDC9950094EF0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
