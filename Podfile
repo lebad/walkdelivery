@@ -7,7 +7,12 @@ target 'walkdelivery' do
 
   # Pods for walkdelivery
 
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
+  pod 'Firebase/Core', '~> 3.15.0'
+  pod 'Firebase/Database', '~> 3.15.0'
+
+  target 'walkdeliveryTests' do
+        inherit! :search_paths
+        pod 'Firebase', '~> 3.15.0'
+  end
 
 end
