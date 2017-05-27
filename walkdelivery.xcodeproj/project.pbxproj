@@ -49,6 +49,7 @@
 		55696FE81ED918B60091B98E /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
 		55696FEC1ED933CD0091B98E /* ErrorEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
+		55696FF01ED93BE00091B98E /* walkdelivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkdelivery.entitlements; sourceTree = "<group>"; };
 		55F77E361ECDC5780094EF0F /* ChooseItemInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItemInteractor.swift; sourceTree = "<group>"; };
 		55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsPresenter.swift; sourceTree = "<group>"; };
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +106,7 @@
 		555A1F6A1ECB1EBB00DA7A73 /* walkdelivery */ = {
 			isa = PBXGroup;
 			children = (
+				55696FF01ED93BE00091B98E /* walkdelivery.entitlements */,
 				55F77E4B1ECDCE900094EF0F /* Services */,
 				55F77E351ECDC54B0094EF0F /* Scenes */,
 				555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */,
@@ -234,6 +236,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6UKGANHQB6;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					55F77E3E1ECDC9950094EF0F = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -527,6 +534,7 @@
 			baseConfigurationReference = 4F13E919C41BD86BEDA56728 /* Pods-walkdelivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = walkdelivery/walkdelivery.entitlements;
 				DEVELOPMENT_TEAM = 6UKGANHQB6;
 				INFOPLIST_FILE = walkdelivery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -541,6 +549,7 @@
 			baseConfigurationReference = FC5C392CA8AF1ECA5AB727C6 /* Pods-walkdelivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = walkdelivery/walkdelivery.entitlements;
 				DEVELOPMENT_TEAM = 6UKGANHQB6;
 				INFOPLIST_FILE = walkdelivery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
