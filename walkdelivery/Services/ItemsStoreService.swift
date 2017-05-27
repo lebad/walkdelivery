@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class ItemsStoreService: ItemsStoreServiceProtocol {
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {

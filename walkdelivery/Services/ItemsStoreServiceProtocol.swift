@@ -8,20 +8,20 @@
 
 import Foundation
 
-public struct ItemEntity {
+struct ItemEntity {
 	
 }
 
-public struct ItemsRequest {
+struct ItemsRequest {
 	
 }
 
-public enum ItemsResult {
+enum ItemsResult {
 	case Success([ItemEntity])
 	case Failure(Error?)
 }
 
-public protocol ItemsStoreServiceProtocol: class {
+protocol ItemsStoreServiceProtocol: class {
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void)
 }

@@ -13,24 +13,41 @@ protocol ChooseItemInteractorInput: class {
 }
 
 protocol ChooseItemInteractorOutput: class {
-	func receive(items: [ItemEntity])
+	func present(items: [ItemEntity])
+	func present(errorMessage: ErrorEntity)
+	func presentAuth()
 }
 
 class ChooseItemInteractor: ChooseItemInteractorInput {
 	
 	weak var output: ChooseItemInteractorOutput?
 	var itemsStoreService: ItemsStoreServiceProtocol?
+	var authService: AuthServiceProtocol?
 	
 	func requestItems() {
-		let request = ItemsRequest()
 		
+		authService?.checkAuth { result in
+			
+			switch result {
+			case .Success( _):
+				self.requestItemsForService()
+			case .NotRegistered:
+				self.output?.presentAuth()
+			case .Failure(let error):
+				self.output?.presentAuth()
+			}
+		}
+	}
+	
+	private func requestItemsForService() {
+		let request = ItemsRequest()
 		itemsStoreService?.getItems(request: request) { [weak self] result in
 			
 			switch result {
 			case .Success(let items):
-				self?.output?.receive(items: items)
+				self?.output?.present(items: items)
 			case .Failure(let error):
-				print("\(error)")
+				self?.output?.present(errorMessage: ErrorEntity(description: "\(String(describing: error))"))
 			}
 		}
 	}

@@ -13,17 +13,57 @@ import XCTest
 class ChooseItemInteractorOutputMock: ChooseItemInteractorOutput {
 	
 	var items = [ItemEntity]()
+	var errorMessage: ErrorEntity?
+	var showAuthCalled = false
 	
-	func receive(items: [ItemEntity]) {
+	func present(items: [ItemEntity]) {
 		self.items = items
+	}
+	
+	func present(errorMessage: ErrorEntity) {
+		self.errorMessage = errorMessage
+	}
+	
+	func presentAuth() {
+		showAuthCalled = true
 	}
 }
 
 class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
 	
+	var isFailure = false
+	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {
 		let items = [ItemEntity()]
+		
+		if isFailure {
+			completionHandler(.Failure(nil))
+			return
+		}
 		completionHandler(.Success(items))
+	}
+}
+
+class AuthServiceFake: AuthServiceProtocol {
+	
+	var hasAuth = true
+	var error: ErrorEntity?
+	
+	func checkAuth(completionHandler: @escaping (AuthResult) -> Void) {
+		guard error == nil else {
+			completionHandler(.Failure(ErrorEntity(description: "")))
+			return
+		}
+		
+		if hasAuth {
+			completionHandler(.Success(UserEntity()))
+			return
+		}
+		completionHandler(.NotRegistered)
+	}
+	
+	func requestAuth(request: RequestUser, completionHandler: @escaping (AuthResult) -> Void) {
+		
 	}
 }
 
@@ -32,6 +72,7 @@ class ChooseItemInteractorTests: XCTestCase {
 	var interactor: ChooseItemInteractor!
 	var interactorOutput: ChooseItemInteractorOutputMock!
 	var itemsStoreService: ItemsStoreServiceFake!
+	var authService: AuthServiceFake!
     
     override func setUp() {
         super.setUp()
@@ -39,21 +80,48 @@ class ChooseItemInteractorTests: XCTestCase {
 		interactor = ChooseItemInteractor()
 		interactorOutput = ChooseItemInteractorOutputMock()
 		itemsStoreService = ItemsStoreServiceFake()
+		authService = AuthServiceFake()
 		
 		interactor.output = interactorOutput
 		interactor.itemsStoreService = itemsStoreService
+		interactor.authService = authService
     }
     
     override func tearDown() {
-		
+		interactor = nil
         super.tearDown()
     }
     
-    func testRequestItemsToReceive() {
+    func testRequestItemsToPresent() {
 		interactor.requestItems()
 		
-		let items = interactorOutput.items
-		
-		XCTAssertTrue(items.count > 0, "Items didn't receive")
+		XCTAssertTrue(interactorOutput.items.count > 0, "Items didn't receive")
+		XCTAssertFalse(interactorOutput.showAuthCalled, "showAuth should not be called")
     }
+	
+	func testRequestItemsToPresentError() {
+		itemsStoreService.isFailure = true
+		
+		interactor.requestItems()
+		
+		XCTAssertNotNil(interactorOutput.errorMessage, "Error didn't receive")
+	}
+	
+	func testRequestItemsToPresentAuth() {
+		authService.hasAuth = false
+		
+		interactor.requestItems()
+		
+		XCTAssertTrue(interactorOutput.items.count == 0, "Items should not be received")
+		XCTAssertTrue(interactorOutput.showAuthCalled, "showAuth didn't call")
+	}
+	
+	func testRequestItemsToPresentAuthAfterGotError() {
+		authService.error = ErrorEntity()
+		
+		interactor.requestItems()
+		
+		XCTAssertTrue(interactorOutput.items.count == 0, "Items should not be received")
+		XCTAssertTrue(interactorOutput.showAuthCalled, "showAuth didn't call")
+	}
 }
