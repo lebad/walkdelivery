@@ -14,14 +14,18 @@ struct UserEntity {
 }
 
 struct RequestUser {
-	var login: String
+	var email: String
 	var password: String
 }
 
 enum AuthResult {
 	case Success(UserEntity)
 	case NotRegistered
-	case Failure(Error?)
+	case Failure(AuthError)
+}
+
+enum AuthError: Error {
+	case InnerError
 }
 
 protocol AuthServiceProtocol: class {
