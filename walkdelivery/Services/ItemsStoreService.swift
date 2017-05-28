@@ -14,7 +14,7 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 	
 	var fireBaseReference = FIRDatabase.database().reference(withPath: "items")
 	
-	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {
+	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		
 		fireBaseReference.observeSingleEvent(of: .value, with: { snapshot in
 			
@@ -30,5 +30,23 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 			}
 			completionHandler(.Success(itemsToReturn))
 		})
+	}
+	
+	func update(items:[ItemEntity], completionHandler: @escaping (ItemsResult<Void>) -> Void) {
+		
+		var postItems = [[String: Any]]()
+		for item in items {
+			postItems.append(item.convertToDict())
+		}
+		
+		let childUpdates = ["items": postItems]
+		fireBaseReference.updateChildValues(childUpdates) { error, reference in
+			guard error == nil else {
+				completionHandler(.Failure(.InnerError))
+				return
+			}
+			
+			completionHandler(.Success())
+		}
 	}
 }

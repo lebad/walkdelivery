@@ -23,14 +23,22 @@ extension ItemEntity {
 		let imageURLString = dict["image_url_string"] as? String ?? ""
 		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString)
 	}
+	
+	func convertToDict() -> [String: Any] {
+		let dict = ["uid": uid,
+		            "name": name,
+		            "description": description,
+		            "image_url_string": imageURLString]
+		return dict
+	}
 }
 
 struct ItemsRequest {
 	
 }
 
-enum ItemsResult {
-	case Success([ItemEntity])
+enum ItemsResult<U> {
+	case Success(U)
 	case Failure(ItemsStoreError)
 }
 
@@ -39,6 +47,6 @@ enum ItemsStoreError: Error {
 }
 
 protocol ItemsStoreServiceProtocol: class {
-	
-	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void)
+	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void)
+	func update(items:[ItemEntity], completionHandler: @escaping (ItemsResult<Void>) -> Void)
 }
