@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserEntity {
-	var id: String?
+	var uid: String?
 	var name: String?
 }
 

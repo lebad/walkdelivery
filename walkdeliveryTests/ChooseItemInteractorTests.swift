@@ -34,13 +34,13 @@ class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
 	var isFailure = false
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {
-		let items = [ItemEntity()]
+		let item = ItemEntity(dict: [:])
 		
 		if isFailure {
-			completionHandler(.Failure(nil))
+			completionHandler(.Failure(.InnerError))
 			return
 		}
-		completionHandler(.Success(items))
+		completionHandler(.Success([item]))
 	}
 }
 
@@ -51,7 +51,7 @@ class AuthServiceFake: AuthServiceProtocol {
 	
 	func checkAuth(completionHandler: @escaping (AuthResult) -> Void) {
 		guard error == nil else {
-			completionHandler(.Failure(ErrorEntity(description: "")))
+			completionHandler(.Failure(.InnerError))
 			return
 		}
 		

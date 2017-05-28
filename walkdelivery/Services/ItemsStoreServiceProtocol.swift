@@ -9,7 +9,20 @@
 import Foundation
 
 struct ItemEntity {
-	
+	var uid: String
+	var name: String
+	var description: String
+	var imageURLString: String
+}
+
+extension ItemEntity {
+	init(dict: [String: Any]) {
+		let uid = dict["uid"] as? String ?? ""
+		let name = dict["name"] as? String ?? ""
+		let description = dict["description"] as? String ?? ""
+		let imageURLString = dict["image_url_string"] as? String ?? ""
+		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString)
+	}
 }
 
 struct ItemsRequest {
@@ -18,7 +31,11 @@ struct ItemsRequest {
 
 enum ItemsResult {
 	case Success([ItemEntity])
-	case Failure(Error?)
+	case Failure(ItemsStoreError)
+}
+
+enum ItemsStoreError: Error {
+	case InnerError
 }
 
 protocol ItemsStoreServiceProtocol: class {

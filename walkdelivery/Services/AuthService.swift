@@ -18,7 +18,7 @@ class AuthService: AuthServiceProtocol {
 	
 	func checkAuth(completionHandler: @escaping (AuthResult) -> Void) {
 		if let user = firAuth?.currentUser {
-			let userEntity = UserEntity(id: user.uid, name: user.displayName)
+			let userEntity = UserEntity(uid: user.uid, name: user.displayName)
 			completionHandler(.Success(userEntity))
 		} else {
 			completionHandler(.NotRegistered)
@@ -65,7 +65,7 @@ class AuthService: AuthServiceProtocol {
 				return
 			}
 			
-			let userEntity = UserEntity(id: currentUser.uid, name: currentUser.displayName)
+			let userEntity = UserEntity(uid: currentUser.uid, name: currentUser.displayName)
 			self?.requestCompletionHanler?(.Success(userEntity))
 		}
 	}
