@@ -24,6 +24,30 @@ class ItemStoreServiceTests: XCTestCase {
         super.tearDown()
     }
 	
+	func testUpdateItems() {
+		let items = [
+			ItemEntity(uid: "", name: "Cheese", description: "The best cheese", imageURLString: "imageURL1"),
+			ItemEntity(uid: "", name: "Onion", description: "The best onion", imageURLString: "imageURL2"),
+			ItemEntity(uid: "", name: "Orange juice", description: "The best juice", imageURLString: "imageURL3")
+		]
+		
+		var sendingSucceed = false
+		let expectation = self.expectation(description: "wait for sending items")
+		itemsStoreService.update(items: items) { result in
+			
+			switch result {
+			case .Success():
+				sendingSucceed = true
+			default: break
+			}
+			expectation.fulfill()
+		}
+		wait(for: [expectation], timeout: 10.0)
+		
+		XCTAssertTrue(sendingSucceed, "Error after sending")
+		
+	}
+	
 	func testGetItemsFromStoreService() {
 		
 		var items = [ItemEntity]()

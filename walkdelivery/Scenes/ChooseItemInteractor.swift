@@ -33,7 +33,7 @@ class ChooseItemInteractor: ChooseItemInteractorInput {
 				self.requestItemsForService()
 			case .NotRegistered:
 				self.output?.presentAuth()
-			case .Failure(let error):
+			case .Failure( _):
 				self.output?.presentAuth()
 			}
 		}

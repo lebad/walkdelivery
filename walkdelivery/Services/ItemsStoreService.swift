@@ -12,21 +12,24 @@ import FirebaseDatabase
 
 class ItemsStoreService: ItemsStoreServiceProtocol {
 	
-	var fireBaseReference = FIRDatabase.database().reference(withPath: "items")
+	var fireBaseReference = FIRDatabase.database().reference()
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		
-		fireBaseReference.observeSingleEvent(of: .value, with: { snapshot in
+		fireBaseReference.child("items").observeSingleEvent(of: .value, with: { snapshot in
 			
-			guard snapshot.exists() == true, let remoteItems = snapshot.value as? NSArray else {
+			guard snapshot.hasChildren() == true, let snaps = snapshot.children.allObjects as? [FIRDataSnapshot] else {
 				completionHandler(.Failure(.InnerError))
 				return
 			}
 			
 			var itemsToReturn = [ItemEntity]()
-			for case let item as [String: Any] in remoteItems {
-				let itemIntity = ItemEntity(dict: item)
-				itemsToReturn.append(itemIntity)
+			for snap in snaps {
+				if var snapshotValue = snap.value as? [String: Any] {
+					snapshotValue["uid"] = snap.key
+					let itemEntity = ItemEntity(dict: snapshotValue)
+					itemsToReturn.append(itemEntity)
+				}
 			}
 			completionHandler(.Success(itemsToReturn))
 		})
@@ -40,6 +43,7 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 		}
 		
 		let childUpdates = ["items": postItems]
+		
 		fireBaseReference.updateChildValues(childUpdates) { error, reference in
 			guard error == nil else {
 				completionHandler(.Failure(.InnerError))

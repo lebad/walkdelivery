@@ -33,7 +33,7 @@ class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
 	
 	var isFailure = false
 	
-	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult) -> Void) {
+	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		let item = ItemEntity(dict: [:])
 		
 		if isFailure {
@@ -41,6 +41,10 @@ class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
 			return
 		}
 		completionHandler(.Success([item]))
+	}
+	
+	func update(items:[ItemEntity], completionHandler: @escaping (ItemsResult<Void>) -> Void) {
+		
 	}
 }
 
