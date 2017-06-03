@@ -11,8 +11,9 @@ import FirebaseAuth
 
 class AuthService: AuthServiceProtocol {
 	
-	var firAuth = FIRAuth.auth()
+	static let sharedInstance = AuthService()
 	
+	private var firAuth = FIRAuth.auth()
 	private var request: RequestUser?
 	private var requestCompletionHanler: ((AuthResult) -> Void)?
 	

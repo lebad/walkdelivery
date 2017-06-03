@@ -11,6 +11,7 @@ import Foundation
 class AuthSceneInteractor {
 	
 	weak var output: AuthSceneInteractorOutput?
+	var authService: AuthServiceProtocol?
 }
 
 extension AuthSceneInteractor: AuthSceneInteractorInput {

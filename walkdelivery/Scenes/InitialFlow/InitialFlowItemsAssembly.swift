@@ -17,7 +17,7 @@ class InitialFlowItemsAssembly {
 		
 		let interactor = InitialFlowItemsInteractor()
 		interactor.output = presenter
-		interactor.authService = AuthService()
+		interactor.authService = AuthService.sharedInstance
 		interactor.itemsStoreService = ItemsStoreService()
 		
 		return interactor
