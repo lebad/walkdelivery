@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		initialFlowInteractor = InitialFlowItemsAssembly.configureInteractor()
 		initialFlowInteractor?.requestItems()
-		initialFlowInteractor?.listenAuthChanges()
+//		initialFlowInteractor?.listenAuthChanges()
 		return true
 	}
 

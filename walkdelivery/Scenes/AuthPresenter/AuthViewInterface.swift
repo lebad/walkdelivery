@@ -9,9 +9,9 @@
 import Foundation
 
 protocol AuthViewInput: class {
-	
+	func setupViews()
 }
 
 protocol AuthViewOutput: class {
-	
+	func viewPrepared()
 }

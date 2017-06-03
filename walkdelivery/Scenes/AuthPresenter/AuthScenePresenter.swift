@@ -20,4 +20,7 @@ extension AuthScenePresenter: AuthSceneInteractorOutput {
 
 extension AuthScenePresenter: AuthViewOutput {
 	
+	func viewPrepared() {
+		view?.setupViews()
+	}
 }
