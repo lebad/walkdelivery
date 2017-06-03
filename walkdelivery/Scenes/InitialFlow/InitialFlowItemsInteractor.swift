@@ -25,6 +25,17 @@ class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 				self.output?.presentAuth()
 			case .Failure( _):
 				self.output?.presentAuth()
+			default: break
+			}
+		}
+	}
+	
+	func listenAuthChanges() {
+		authService?.listenAuthState{ result in
+			switch result {
+			case.NotRegistered:
+				self.output?.presentAuth()
+			default: break
 			}
 		}
 	}

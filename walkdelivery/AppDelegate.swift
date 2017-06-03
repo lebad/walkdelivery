@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		fireBaseReference = FIRDatabase.database().reference()
 		
 		initialFlowInteractor = InitialFlowItemsAssembly.configureInteractor()
-		initialFlowInteractor?.requestItems()		
+		initialFlowInteractor?.requestItems()
+		initialFlowInteractor?.listenAuthChanges()
 		return true
 	}
 

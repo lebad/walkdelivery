@@ -21,6 +21,7 @@ struct RequestUser {
 enum AuthResult {
 	case Success(UserEntity)
 	case NotRegistered
+	case UserChanged
 	case Failure(AuthError)
 }
 
@@ -31,4 +32,5 @@ enum AuthError: Error {
 protocol AuthServiceProtocol: class {
 	func checkAuth(completionHandler: @escaping (AuthResult) -> Void)
 	func requestAuth(request: RequestUser, completionHandler: @escaping (AuthResult) -> Void)
+	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void)
 }

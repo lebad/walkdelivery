@@ -40,6 +40,17 @@ class AuthService: AuthServiceProtocol {
 		}
 	}
 	
+	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void) {
+		firAuth?.addStateDidChangeListener { auth, user in
+			
+			if user == nil {
+				completionHandler(.NotRegistered)
+			} else {
+				completionHandler(.UserChanged)
+			}
+		}
+	}
+	
 	private func requestAuth() {
 		guard let request = self.request else { return }
 		

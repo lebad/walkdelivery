@@ -10,6 +10,7 @@ import Foundation
 
 protocol InitialFlowItemsInteractorInput: class {
 	func requestItems()
+	func listenAuthChanges()
 }
 
 protocol InitialFlowItemsInteractorOutput: class {
