@@ -20,11 +20,15 @@
 		55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316D1EE2851F00989738 /* AuthViewController.swift */; };
 		55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316F1EE285FA00989738 /* AuthViewInterface.swift */; };
 		55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831711EE2870200989738 /* AuthSceneInteractorInterface.swift */; };
-		55D831761EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */; };
 		55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831771EE28A0100989738 /* AuthSceneAssembly.swift */; };
 		55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831791EE28C0500989738 /* AuthSceneIntercator.swift */; };
 		55D8317E1EE2949700989738 /* LaunchXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D8317D1EE2949700989738 /* LaunchXib.xib */; };
-		55F77E371ECDC5780094EF0F /* InitialFlowItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */; };
+		55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831801EE2A73700989738 /* InitialFlowItemsInteractor.swift */; };
+		55D831831EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831811EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift */; };
+		55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831841EE2A76E00989738 /* InitialFlowItemsPresenter.swift */; };
+		55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831871EE2A94300989738 /* InitialFlowItemsRouter.swift */; };
+		55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831891EE2A96100989738 /* InitialFlowItemsRouterInterface.swift */; };
+		55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8318B1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift */; };
 		55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */; };
 		55F77E4A1ECDC9BB0094EF0F /* InitialFlowItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E491ECDC9BB0094EF0F /* InitialFlowItemsInteractorTests.swift */; };
 		55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */; };
@@ -60,11 +64,15 @@
 		55D8316D1EE2851F00989738 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		55D8316F1EE285FA00989738 /* AuthViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewInterface.swift; sourceTree = "<group>"; };
 		55D831711EE2870200989738 /* AuthSceneInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneInteractorInterface.swift; sourceTree = "<group>"; };
-		55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractorInterface.swift; sourceTree = "<group>"; };
 		55D831771EE28A0100989738 /* AuthSceneAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneAssembly.swift; sourceTree = "<group>"; };
 		55D831791EE28C0500989738 /* AuthSceneIntercator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneIntercator.swift; sourceTree = "<group>"; };
 		55D8317D1EE2949700989738 /* LaunchXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchXib.xib; sourceTree = "<group>"; };
-		55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractor.swift; sourceTree = "<group>"; };
+		55D831801EE2A73700989738 /* InitialFlowItemsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractor.swift; sourceTree = "<group>"; };
+		55D831811EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractorInterface.swift; sourceTree = "<group>"; };
+		55D831841EE2A76E00989738 /* InitialFlowItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsPresenter.swift; sourceTree = "<group>"; };
+		55D831871EE2A94300989738 /* InitialFlowItemsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsRouter.swift; sourceTree = "<group>"; };
+		55D831891EE2A96100989738 /* InitialFlowItemsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsRouterInterface.swift; sourceTree = "<group>"; };
+		55D8318B1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsAssembly.swift; sourceTree = "<group>"; };
 		55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsPresenter.swift; sourceTree = "<group>"; };
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F77E431ECDC9950094EF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,11 +154,23 @@
 			path = AuthPresenter;
 			sourceTree = "<group>";
 		};
+		55D8317F1EE2A73700989738 /* InitialFlow */ = {
+			isa = PBXGroup;
+			children = (
+				55D831811EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift */,
+				55D831801EE2A73700989738 /* InitialFlowItemsInteractor.swift */,
+				55D831841EE2A76E00989738 /* InitialFlowItemsPresenter.swift */,
+				55D831891EE2A96100989738 /* InitialFlowItemsRouterInterface.swift */,
+				55D831871EE2A94300989738 /* InitialFlowItemsRouter.swift */,
+				55D8318B1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift */,
+			);
+			path = InitialFlow;
+			sourceTree = "<group>";
+		};
 		55F77E351ECDC54B0094EF0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */,
-				55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */,
+				55D8317F1EE2A73700989738 /* InitialFlow */,
 				55D8316A1EE2840B00989738 /* AuthScene */,
 				55F77E381ECDC83F0094EF0F /* DisplayedItems */,
 			);
@@ -417,22 +437,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F77E371ECDC5780094EF0F /* InitialFlowItemsInteractor.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
+				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
 				55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */,
 				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,
 				55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */,
+				55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */,
+				55D831831EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
 				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,
 				55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */,
 				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
+				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
+				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
+				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
 				55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */,
-				55D831761EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

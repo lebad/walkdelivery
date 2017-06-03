@@ -17,17 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var fireBaseReference: FIRDatabaseReference!
 
+	var initialFlowInteractor: InitialFlowItemsInteractorInput?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
 		FIRApp.configure()
 		fireBaseReference = FIRDatabase.database().reference()
 		
-		window = UIWindow(frame: UIScreen.main.bounds)
-		let viewController = AuthSceneAssembly.configureView()
-		window?.rootViewController = viewController;
-		window?.makeKeyAndVisible()
-		
+		initialFlowInteractor = InitialFlowItemsAssembly.configureInteractor()
+		initialFlowInteractor?.requestItems()		
 		return true
 	}
 

@@ -10,7 +10,7 @@ import Foundation
 
 class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 	
-	weak var output: InitialFlowItemsInteractorOutput?
+	var output: InitialFlowItemsInteractorOutput?
 	var itemsStoreService: ItemsStoreServiceProtocol?
 	var authService: AuthServiceProtocol?
 	
