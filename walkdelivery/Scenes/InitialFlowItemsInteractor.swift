@@ -1,5 +1,5 @@
 //
-//  ChooseItemInteractor.swift
+//  InitialFlowItemsInteractor.swift
 //  walkdelivery
 //
 //  Created by AndreyLebedev on 18/05/2017.
@@ -8,19 +8,19 @@
 
 import Foundation
 
-protocol ChooseItemInteractorInput: class {
+protocol InitialFlowItemsInteractorInput: class {
 	func requestItems()
 }
 
-protocol ChooseItemInteractorOutput: class {
+protocol InitialFlowItemsInteractorOutput: class {
 	func present(items: [ItemEntity])
 	func present(errorMessage: ErrorEntity)
 	func presentAuth()
 }
 
-class ChooseItemInteractor: ChooseItemInteractorInput {
+class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 	
-	weak var output: ChooseItemInteractorOutput?
+	weak var output: InitialFlowItemsInteractorOutput?
 	var itemsStoreService: ItemsStoreServiceProtocol?
 	var authService: AuthServiceProtocol?
 	

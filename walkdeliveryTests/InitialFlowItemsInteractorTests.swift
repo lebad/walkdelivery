@@ -1,5 +1,5 @@
 //
-//  ChooseItemInteractorTests.swift
+//  InitialFlowItemsInteractorTests.swift
 //  walkdelivery
 //
 //  Created by AndreyLebedev on 18/05/2017.
@@ -10,7 +10,7 @@
 
 import XCTest
 
-class ChooseItemInteractorOutputMock: ChooseItemInteractorOutput {
+class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
 	
 	var items = [ItemEntity]()
 	var errorMessage: ErrorEntity?
@@ -71,18 +71,18 @@ class AuthServiceFake: AuthServiceProtocol {
 	}
 }
 
-class ChooseItemInteractorTests: XCTestCase {
+class InitialFlowItemsInteractorTests: XCTestCase {
 	
-	var interactor: ChooseItemInteractor!
-	var interactorOutput: ChooseItemInteractorOutputMock!
+	var interactor: InitialFlowItemsInteractor!
+	var interactorOutput: InitialFlowItemsInteractorOutputMock!
 	var itemsStoreService: ItemsStoreServiceFake!
 	var authService: AuthServiceFake!
     
     override func setUp() {
         super.setUp()
 		
-		interactor = ChooseItemInteractor()
-		interactorOutput = ChooseItemInteractorOutputMock()
+		interactor = InitialFlowItemsInteractor()
+		interactorOutput = InitialFlowItemsInteractorOutputMock()
 		itemsStoreService = ItemsStoreServiceFake()
 		authService = AuthServiceFake()
 		
