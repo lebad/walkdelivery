@@ -8,16 +8,6 @@
 
 import Foundation
 
-protocol InitialFlowItemsInteractorInput: class {
-	func requestItems()
-}
-
-protocol InitialFlowItemsInteractorOutput: class {
-	func present(items: [ItemEntity])
-	func present(errorMessage: ErrorEntity)
-	func presentAuth()
-}
-
 class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 	
 	weak var output: InitialFlowItemsInteractorOutput?

@@ -23,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		FIRApp.configure()
 		fireBaseReference = FIRDatabase.database().reference()
 		
+		window = UIWindow(frame: UIScreen.main.bounds)
+		let viewController = AuthSceneAssembly.configureView()
+		window?.rootViewController = viewController;
+		window?.makeKeyAndVisible()
+		
 		return true
 	}
 

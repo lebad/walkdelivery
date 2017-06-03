@@ -9,16 +9,21 @@
 /* Begin PBXBuildFile section */
 		535FF6B9752B1E2951D60257 /* Pods_walkdeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D5013D49AE16D22A24FC5 /* Pods_walkdeliveryTests.framework */; };
 		555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */; };
-		555A1F6E1ECB1EBB00DA7A73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6D1ECB1EBB00DA7A73 /* ViewController.swift */; };
-		555A1F711ECB1EBB00DA7A73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F6F1ECB1EBB00DA7A73 /* Main.storyboard */; };
 		555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */; };
-		555A1F761ECB1EBB00DA7A73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F741ECB1EBB00DA7A73 /* LaunchScreen.storyboard */; };
 		555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */; };
 		55696FE91ED918B60091B98E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FE81ED918B60091B98E /* AuthService.swift */; };
 		55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */; };
 		55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEC1ED933CD0091B98E /* ErrorEntity.swift */; };
 		55696FF41EDB4BFA0091B98E /* ItemStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */; };
 		55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831681EE1E96F00989738 /* ItemEntity.swift */; };
+		55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316B1EE2843800989738 /* AuthScenePresenter.swift */; };
+		55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316D1EE2851F00989738 /* AuthViewController.swift */; };
+		55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316F1EE285FA00989738 /* AuthViewInterface.swift */; };
+		55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831711EE2870200989738 /* AuthSceneInteractorInterface.swift */; };
+		55D831761EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */; };
+		55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831771EE28A0100989738 /* AuthSceneAssembly.swift */; };
+		55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831791EE28C0500989738 /* AuthSceneIntercator.swift */; };
+		55D8317E1EE2949700989738 /* LaunchXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D8317D1EE2949700989738 /* LaunchXib.xib */; };
 		55F77E371ECDC5780094EF0F /* InitialFlowItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */; };
 		55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */; };
 		55F77E4A1ECDC9BB0094EF0F /* InitialFlowItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E491ECDC9BB0094EF0F /* InitialFlowItemsInteractorTests.swift */; };
@@ -42,10 +47,7 @@
 		4F13E919C41BD86BEDA56728 /* Pods-walkdelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walkdelivery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-walkdelivery/Pods-walkdelivery.debug.xcconfig"; sourceTree = "<group>"; };
 		555A1F681ECB1EBB00DA7A73 /* walkdelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walkdelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		555A1F6D1ECB1EBB00DA7A73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		555A1F701ECB1EBB00DA7A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		555A1F751ECB1EBB00DA7A73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		555A1F771ECB1EBB00DA7A73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		55696FE81ED918B60091B98E /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 		55696FF01ED93BE00091B98E /* walkdelivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkdelivery.entitlements; sourceTree = "<group>"; };
 		55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreServiceTests.swift; sourceTree = "<group>"; };
 		55D831681EE1E96F00989738 /* ItemEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
+		55D8316B1EE2843800989738 /* AuthScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenter.swift; sourceTree = "<group>"; };
+		55D8316D1EE2851F00989738 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		55D8316F1EE285FA00989738 /* AuthViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewInterface.swift; sourceTree = "<group>"; };
+		55D831711EE2870200989738 /* AuthSceneInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneInteractorInterface.swift; sourceTree = "<group>"; };
+		55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractorInterface.swift; sourceTree = "<group>"; };
+		55D831771EE28A0100989738 /* AuthSceneAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneAssembly.swift; sourceTree = "<group>"; };
+		55D831791EE28C0500989738 /* AuthSceneIntercator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneIntercator.swift; sourceTree = "<group>"; };
+		55D8317D1EE2949700989738 /* LaunchXib.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchXib.xib; sourceTree = "<group>"; };
 		55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractor.swift; sourceTree = "<group>"; };
 		55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsPresenter.swift; sourceTree = "<group>"; };
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,19 +125,33 @@
 				55F77E351ECDC54B0094EF0F /* Scenes */,
 				555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */,
 				555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */,
-				555A1F6D1ECB1EBB00DA7A73 /* ViewController.swift */,
-				555A1F6F1ECB1EBB00DA7A73 /* Main.storyboard */,
 				555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */,
-				555A1F741ECB1EBB00DA7A73 /* LaunchScreen.storyboard */,
+				55D8317D1EE2949700989738 /* LaunchXib.xib */,
 				555A1F771ECB1EBB00DA7A73 /* Info.plist */,
 			);
 			path = walkdelivery;
 			sourceTree = "<group>";
 		};
+		55D8316A1EE2840B00989738 /* AuthScene */ = {
+			isa = PBXGroup;
+			children = (
+				55D831711EE2870200989738 /* AuthSceneInteractorInterface.swift */,
+				55D831791EE28C0500989738 /* AuthSceneIntercator.swift */,
+				55D8316B1EE2843800989738 /* AuthScenePresenter.swift */,
+				55D8316F1EE285FA00989738 /* AuthViewInterface.swift */,
+				55D8316D1EE2851F00989738 /* AuthViewController.swift */,
+				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
+			);
+			name = AuthScene;
+			path = AuthPresenter;
+			sourceTree = "<group>";
+		};
 		55F77E351ECDC54B0094EF0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				55D831751EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift */,
 				55F77E361ECDC5780094EF0F /* InitialFlowItemsInteractor.swift */,
+				55D8316A1EE2840B00989738 /* AuthScene */,
 				55F77E381ECDC83F0094EF0F /* DisplayedItems */,
 			);
 			path = Scenes;
@@ -280,10 +304,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				555A1F761ECB1EBB00DA7A73 /* LaunchScreen.storyboard in Resources */,
+				55D8317E1EE2949700989738 /* LaunchXib.xib in Resources */,
 				555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */,
 				555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */,
-				555A1F711ECB1EBB00DA7A73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,15 +418,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				55F77E371ECDC5780094EF0F /* InitialFlowItemsInteractor.swift in Sources */,
+				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
+				55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */,
+				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,
 				55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
-				555A1F6E1ECB1EBB00DA7A73 /* ViewController.swift in Sources */,
+				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,
+				55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */,
 				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
+				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
 				55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */,
+				55D831761EE289AD00989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,25 +454,6 @@
 			targetProxy = 55F77E441ECDC9950094EF0F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		555A1F6F1ECB1EBB00DA7A73 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				555A1F701ECB1EBB00DA7A73 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		555A1F741ECB1EBB00DA7A73 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				555A1F751ECB1EBB00DA7A73 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		555A1F781ECB1EBB00DA7A73 /* Debug */ = {
