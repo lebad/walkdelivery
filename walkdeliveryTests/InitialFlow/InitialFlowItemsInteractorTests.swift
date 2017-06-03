@@ -7,7 +7,6 @@
 //
 
 @testable import walkdelivery
-
 import XCTest
 
 class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
