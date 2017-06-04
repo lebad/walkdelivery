@@ -13,7 +13,10 @@ class AuthViewController: UIViewController {
 	
 	var output: AuthViewOutput?
 	
-	var loginView = LoginView(frame: CGRect.zero)
+	var loginView: LoginView = {
+		let view = LoginView(frame: CGRect.zero)
+		return view
+	}()
 	
 	let LoginViewLeft: CGFloat = 30.0
 
@@ -32,6 +35,9 @@ extension AuthViewController: AuthViewInput {
 	}
 	
 	func setupLoginView() {
+		loginView.textFieldEmail.delegate = self
+		loginView.textFieldPassword.delegate = self
+		
 		self.view.addSubview(loginView)
 		
 		loginView.snp.makeConstraints { make in
@@ -40,5 +46,19 @@ extension AuthViewController: AuthViewInput {
 			make.rightMargin.equalTo(self.view).offset(LoginViewLeft)
 		}
 		loginView.updateHeight()
+	}
+}
+
+extension AuthViewController: UITextFieldDelegate {
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if textField == loginView.textFieldEmail {
+			loginView.textFieldPassword.becomeFirstResponder()
+		}
+		if textField == loginView.textFieldPassword {
+			loginView.textFieldPassword.resignFirstResponder()
+		}
+		
+		return true
 	}
 }
