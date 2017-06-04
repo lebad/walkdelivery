@@ -31,6 +31,7 @@
 		55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8318B1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift */; };
 		55D8318F1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8318E1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift */; };
 		55D831931EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831921EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift */; };
+		55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC922C1EE34A6300744BA5 /* LoginView.swift */; };
 		55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */; };
 		55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */; };
 		55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E4E1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift */; };
@@ -76,6 +77,7 @@
 		55D8318B1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsAssembly.swift; sourceTree = "<group>"; };
 		55D8318E1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractorTests.swift; sourceTree = "<group>"; };
 		55D831921EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsPresenterTests.swift; sourceTree = "<group>"; };
+		55DC922C1EE34A6300744BA5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsPresenter.swift; sourceTree = "<group>"; };
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55F77E431ECDC9950094EF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				55D8316F1EE285FA00989738 /* AuthViewInterface.swift */,
 				55D8316D1EE2851F00989738 /* AuthViewController.swift */,
 				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
+				55DC922B1EE34A5100744BA5 /* Views */,
 			);
 			name = AuthScene;
 			path = AuthPresenter;
@@ -176,6 +179,14 @@
 				55D831921EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift */,
 			);
 			path = InitialFlow;
+			sourceTree = "<group>";
+		};
+		55DC922B1EE34A5100744BA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				55DC922C1EE34A6300744BA5 /* LoginView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		55F77E351ECDC54B0094EF0F /* Scenes */ = {
@@ -463,6 +474,7 @@
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
+				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
