@@ -23,4 +23,12 @@ extension AuthScenePresenter: AuthViewOutput {
 	func viewPrepared() {
 		view?.setupViews()
 	}
+	
+	func requestSignup() {
+		view?.showSignupAlert()
+	}
+	
+	func requestLogin() {
+		
+	}
 }

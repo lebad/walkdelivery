@@ -10,8 +10,11 @@ import Foundation
 
 protocol AuthViewInput: class {
 	func setupViews()
+	func showSignupRequest()
 }
 
 protocol AuthViewOutput: class {
 	func viewPrepared()
+	func requestSignup()
+	func requestLogin()
 }
