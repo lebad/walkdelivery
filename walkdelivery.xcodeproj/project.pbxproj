@@ -14,7 +14,11 @@
 		55696FE91ED918B60091B98E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FE81ED918B60091B98E /* AuthService.swift */; };
 		55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */; };
 		55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEC1ED933CD0091B98E /* ErrorEntity.swift */; };
-		55696FF41EDB4BFA0091B98E /* ItemStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */; };
+		55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */; };
+		55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */; };
+		55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */; };
+		55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EE1EE7FA8E00961C40 /* ErrorViewModel.swift */; };
+		55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650F01EE8005300961C40 /* StringExtensions.swift */; };
 		55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831681EE1E96F00989738 /* ItemEntity.swift */; };
 		55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316B1EE2843800989738 /* AuthScenePresenter.swift */; };
 		55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316D1EE2851F00989738 /* AuthViewController.swift */; };
@@ -61,6 +65,11 @@
 		55696FEC1ED933CD0091B98E /* ErrorEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
 		55696FF01ED93BE00091B98E /* walkdelivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkdelivery.entitlements; sourceTree = "<group>"; };
 		55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreServiceTests.swift; sourceTree = "<group>"; };
+		55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenterTests.swift; sourceTree = "<group>"; };
+		55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLoginViewModel.swift; sourceTree = "<group>"; };
+		55A650EE1EE7FA8E00961C40 /* ErrorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
+		55A650F01EE8005300961C40 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		55D831681EE1E96F00989738 /* ItemEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
 		55D8316B1EE2843800989738 /* AuthScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenter.swift; sourceTree = "<group>"; };
 		55D8316D1EE2851F00989738 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +154,24 @@
 			path = walkdelivery;
 			sourceTree = "<group>";
 		};
+		55A650E61EE7E31C00961C40 /* AuthScene */ = {
+			isa = PBXGroup;
+			children = (
+				55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */,
+			);
+			path = AuthScene;
+			sourceTree = "<group>";
+		};
+		55A650E91EE7E6D800961C40 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */,
+				55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */,
+				55A650EE1EE7FA8E00961C40 /* ErrorViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		55D8316A1EE2840B00989738 /* AuthScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +181,7 @@
 				55D8316F1EE285FA00989738 /* AuthViewInterface.swift */,
 				55D8316D1EE2851F00989738 /* AuthViewController.swift */,
 				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
+				55A650E91EE7E6D800961C40 /* ViewModels */,
 				55DC922B1EE34A5100744BA5 /* Views */,
 			);
 			name = AuthScene;
@@ -193,6 +221,7 @@
 		55DC922E1EE3FD3300744BA5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				55A650F01EE8005300961C40 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +249,7 @@
 			children = (
 				55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */,
 				55D8318D1EE2BD8B00989738 /* InitialFlow */,
+				55A650E61EE7E31C00961C40 /* AuthScene */,
 				55F77E431ECDC9950094EF0F /* Info.plist */,
 			);
 			path = walkdeliveryTests;
@@ -469,6 +499,7 @@
 			files = (
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
+				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
 				55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */,
 				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,
 				55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */,
@@ -481,11 +512,14 @@
 				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
+				55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
+				55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */,
+				55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */,
 				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
 				55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */,
 			);
@@ -496,7 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D8318F1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift in Sources */,
-				55696FF41EDB4BFA0091B98E /* ItemStoreServiceTests.swift in Sources */,
+				55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */,
 				55D831931EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

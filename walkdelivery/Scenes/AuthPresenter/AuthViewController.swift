@@ -30,7 +30,7 @@ class AuthViewController: UIViewController {
 	// MARK: Actions
 	
 	func tap(loginButton: UIButton) {
-		self.output?.requestLogin()
+		
 	}
 	
 	func tap(signupButton: UIButton) {
@@ -60,7 +60,7 @@ extension AuthViewController: AuthViewInput {
 		loginView.updateHeight()
 	}
 	
-	func showSignupRequest() {
+	func showSignupRequest(model: EnterLoginViewModel) {
 		let alert = UIAlertController(title: "Register",
 		                              message: "Register",
 		                              preferredStyle: .alert)
@@ -69,7 +69,36 @@ extension AuthViewController: AuthViewInput {
 			guard let textFields = alert.textFields else { return }
 			let emailField = textFields[0]
 			let passwordField = textFields[1]
+			
+			var loginViewModel = LoginViewModel()
+			loginViewModel.email = emailField.text
+			loginViewModel.password = passwordField.text
+			
+			self.output?.entered(loginViewModel: loginViewModel)
 		}
+		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+		
+		alert.addAction(saveAction)
+		alert.addAction(cancelAction)
+		
+		alert.addTextField { textEmail in
+			textEmail.placeholder = model.email
+		}
+		alert.addTextField { textPassword in
+			textPassword.isSecureTextEntry = true
+			textPassword.placeholder = model.password
+		}
+		present(alert, animated: true, completion: nil)
+	}
+	
+	func show(errorModel: ErrorViewModel) {
+		let alert = UIAlertController(title: nil,
+		                              message: errorModel.description,
+		                              preferredStyle: .alert)
+		let okAction = UIAlertAction(title: "OK", style: .default)
+		alert.addAction(okAction)
+		present(alert, animated: true, completion: nil)
 	}
 }
 

@@ -68,6 +68,10 @@ class AuthServiceFake: AuthServiceProtocol {
 	func requestAuth(request: RequestUser, completionHandler: @escaping (AuthResult) -> Void) {
 		
 	}
+	
+	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void) {
+		
+	}
 }
 
 class InitialFlowItemsInteractorTests: XCTestCase {

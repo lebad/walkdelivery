@@ -16,4 +16,7 @@ class AuthSceneInteractor {
 
 extension AuthSceneInteractor: AuthSceneInteractorInput {
 	
+	func requestSignup(model: LoginViewModel) {
+		
+	}
 }

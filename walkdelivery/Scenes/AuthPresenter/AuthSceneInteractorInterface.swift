@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AuthSceneInteractorInput: class {
-	
+	func requestSignup(model: LoginViewModel)
 }
 
 protocol AuthSceneInteractorOutput: class {

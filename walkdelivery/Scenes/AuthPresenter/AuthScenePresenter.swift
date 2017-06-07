@@ -20,15 +20,25 @@ extension AuthScenePresenter: AuthSceneInteractorOutput {
 
 extension AuthScenePresenter: AuthViewOutput {
 	
+	func entered(loginViewModel: LoginViewModel) {
+		
+		guard !loginViewModel.isValid() else {
+			let errorModel = ErrorViewModel(description: "Not Valid Data. Please repeat.")
+			view?.show(errorModel: errorModel)
+			return
+		}
+		
+		interactor?.requestSignup(model: loginViewModel)
+	}
+	
 	func viewPrepared() {
 		view?.setupViews()
 	}
 	
 	func requestSignup() {
-		view?.showSignupAlert()
+		let enterModel = EnterLoginViewModel(email: "Enter your email",
+		                                     password: "Enter your password")
+		view?.showSignupRequest(model: enterModel)
 	}
 	
-	func requestLogin() {
-		
-	}
 }
