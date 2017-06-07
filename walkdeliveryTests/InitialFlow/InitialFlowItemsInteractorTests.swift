@@ -124,7 +124,7 @@ class InitialFlowItemsInteractorTests: XCTestCase {
 	}
 	
 	func testRequestItemsToPresentAuthAfterGotError() {
-		authService.error = ErrorEntity()
+		authService.error = ErrorEntity(description: "")
 		
 		interactor.requestItems()
 		

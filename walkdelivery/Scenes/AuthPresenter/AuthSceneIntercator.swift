@@ -17,6 +17,16 @@ class AuthSceneInteractor {
 extension AuthSceneInteractor: AuthSceneInteractorInput {
 	
 	func requestSignup(model: LoginViewModel) {
+		guard let email = model.email, let password = model.password else { return }
 		
+		let requestUser = RequestUser(email: email, password: password)
+		authService?.requestAuth(request: requestUser) { [weak self] result in
+			switch result {
+			case .Success(let userEntity):
+				self?.output?.presentSuccessSignup(user: userEntity)
+			default:
+				self?.output?.presentError()
+			}
+		}
 	}
 }

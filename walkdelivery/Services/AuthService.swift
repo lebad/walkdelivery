@@ -27,17 +27,9 @@ class AuthService: AuthServiceProtocol {
 	}
 	
 	func requestAuth(request: RequestUser, completionHandler: @escaping (AuthResult) -> Void) {
-		checkAuth { [weak self] result in
-			switch result {
-			case .Success(let user):
-				completionHandler(.Success(user))
-			default:
-				self?.request = request
-				self?.requestCompletionHanler = completionHandler
-				
-				self?.requestAuth()
-			}
-		}
+		self.request = request
+		requestCompletionHanler = completionHandler
+		requestAuth()
 	}
 	
 	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void) {

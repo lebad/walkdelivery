@@ -19,6 +19,7 @@
 		55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */; };
 		55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EE1EE7FA8E00961C40 /* ErrorViewModel.swift */; };
 		55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650F01EE8005300961C40 /* StringExtensions.swift */; };
+		55A650F51EE8079800961C40 /* AuthSceneInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650F41EE8079800961C40 /* AuthSceneInteractorTests.swift */; };
 		55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831681EE1E96F00989738 /* ItemEntity.swift */; };
 		55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316B1EE2843800989738 /* AuthScenePresenter.swift */; };
 		55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8316D1EE2851F00989738 /* AuthViewController.swift */; };
@@ -70,6 +71,7 @@
 		55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLoginViewModel.swift; sourceTree = "<group>"; };
 		55A650EE1EE7FA8E00961C40 /* ErrorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
 		55A650F01EE8005300961C40 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		55A650F41EE8079800961C40 /* AuthSceneInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneInteractorTests.swift; sourceTree = "<group>"; };
 		55D831681EE1E96F00989738 /* ItemEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEntity.swift; sourceTree = "<group>"; };
 		55D8316B1EE2843800989738 /* AuthScenePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenter.swift; sourceTree = "<group>"; };
 		55D8316D1EE2851F00989738 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */,
+				55A650F41EE8079800961C40 /* AuthSceneInteractorTests.swift */,
 			);
 			path = AuthScene;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				55D8318F1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift in Sources */,
 				55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */,
 				55D831931EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift in Sources */,
+				55A650F51EE8079800961C40 /* AuthSceneInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

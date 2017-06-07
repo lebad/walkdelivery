@@ -13,8 +13,9 @@ struct ErrorViewModel {
 }
 
 extension ErrorViewModel: Equatable {
+	static func ==(left: ErrorViewModel, right: ErrorViewModel) -> Bool {
+		return left.description == right.description
+	}
 }
 
-func ==(left: ErrorViewModel, right: ErrorViewModel) -> Bool {
-	return left.description == right.description
-}
+

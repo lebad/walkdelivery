@@ -13,5 +13,6 @@ protocol AuthSceneInteractorInput: class {
 }
 
 protocol AuthSceneInteractorOutput: class {
-	
+	func presentSuccessSignup(user: UserEntity)
+	func presentError()
 }

@@ -34,3 +34,16 @@ protocol AuthServiceProtocol: class {
 	func requestAuth(request: RequestUser, completionHandler: @escaping (AuthResult) -> Void)
 	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void)
 }
+
+extension RequestUser: Equatable {
+	static func ==(lhs: RequestUser, rhs: RequestUser) -> Bool {
+		return lhs.email == rhs.email &&
+			   lhs.password == rhs.password
+	}
+}
+
+extension UserEntity: Equatable {
+	static func ==(lhs: UserEntity, rhs: UserEntity) -> Bool {
+		return lhs.uid == lhs.uid
+	}
+}

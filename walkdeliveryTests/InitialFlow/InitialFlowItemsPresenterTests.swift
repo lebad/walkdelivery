@@ -47,7 +47,7 @@ class InitialFlowItemsPresenterTests: XCTestCase {
 	}
 	
 	func testRouteToDisplayItemsSceneAfterPresentError() {
-		presenter.present(errorMessage: ErrorEntity())
+		presenter.present(errorMessage: ErrorEntity(description: ""))
 		
 		XCTAssertTrue(router.routeToDisplayedItemsSceneCalled, "Displayed items didn't call")
 	}

@@ -19,7 +19,7 @@ extension LoginViewModel: Validatable {
 		guard let email = self.email, let password = self.password else {
 			return false
 		}
-		guard !email.isEmpty, !password.isEmpty, !email.isValidEmail() else {
+		guard !email.isEmpty, !password.isEmpty, email.isValidEmail() else {
 			return false
 		}
 		return true
@@ -31,10 +31,10 @@ protocol Validatable {
 }
 
 extension LoginViewModel : Equatable {
-	
+	static func ==(left: LoginViewModel, right: LoginViewModel) -> Bool {
+		return left.email == right.email &&
+			left.password == right.password
+	}
 }
 
-func ==(left: LoginViewModel, right: LoginViewModel) -> Bool {
-	return left.email == right.email &&
-		   left.password == right.password
-}
+

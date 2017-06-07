@@ -9,5 +9,5 @@
 import Foundation
 
 struct ErrorEntity: Error {
-	var description: String?
+	let description: String
 }

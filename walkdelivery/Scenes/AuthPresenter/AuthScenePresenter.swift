@@ -16,13 +16,20 @@ class AuthScenePresenter {
 
 extension AuthScenePresenter: AuthSceneInteractorOutput {
 	
+	func presentSuccessSignup(user: UserEntity) {
+		
+	}
+	
+	func presentError() {
+		
+	}
 }
 
 extension AuthScenePresenter: AuthViewOutput {
 	
 	func entered(loginViewModel: LoginViewModel) {
 		
-		guard !loginViewModel.isValid() else {
+		guard loginViewModel.isValid() else {
 			let errorModel = ErrorViewModel(description: "Not Valid Data. Please repeat.")
 			view?.show(errorModel: errorModel)
 			return

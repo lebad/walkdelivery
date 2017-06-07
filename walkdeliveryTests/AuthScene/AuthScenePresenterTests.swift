@@ -45,11 +45,8 @@ class AuthScenePresenterTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-		authViewMock = AuthViewMock()
-		authScenePresenter.view = authViewMock
 		
-		authInteractor = AuthInteractorMock()
-		authScenePresenter.interactor = authInteractor
+		
     }
     
     override func tearDown() {
@@ -57,6 +54,9 @@ class AuthScenePresenterTests: XCTestCase {
     }
 	
 	func testWhenViewIsPreparedSetupViews() {
+		authViewMock = AuthViewMock()
+		authScenePresenter.view = authViewMock
+		
 		authScenePresenter.viewPrepared()
 		
 		XCTAssertTrue(authViewMock.setupViewsCalled, "setupViews didn't call")
@@ -65,6 +65,8 @@ class AuthScenePresenterTests: XCTestCase {
 	func testWhenRequestSignupShowSignupRequest() {
 		let email = "Enter your email"
 		let password = "Enter your password"
+		authViewMock = AuthViewMock()
+		authScenePresenter.view = authViewMock
 		
 		authScenePresenter.requestSignup()
 		
@@ -74,7 +76,9 @@ class AuthScenePresenterTests: XCTestCase {
 	}
 	
 	func testWhenEnteredValidLoginViewModelRequestSignUp() {
-		let loginViewModel = LoginViewModel(email: "356ghd74@mail.com", password: "qwerty34tre")
+		authInteractor = AuthInteractorMock()
+		authScenePresenter.interactor = authInteractor
+		let loginViewModel = LoginViewModel(email: "fgghd@mail.com", password: "qwerty34tre")
 		
 		authScenePresenter.entered(loginViewModel: loginViewModel)
 		
@@ -84,28 +88,43 @@ class AuthScenePresenterTests: XCTestCase {
 	func testWhenEnteredNotValidLoginShowError() {
 		let errorModel = ErrorViewModel(description: "Not Valid Data. Please repeat.")
 		
+		//1
+		reloadPresenter()
 		var loginViewModel = LoginViewModel(email: "356g", password: "qwerty34tre")
 		authScenePresenter.entered(loginViewModel: loginViewModel)
-		authScenePresenter.interactor = AuthInteractorMock()
+		
 		XCTAssertNil(authInteractor.model)
 		XCTAssertEqual(authViewMock.errorModel, errorModel)
 		
+		//2
+		reloadPresenter()
 		loginViewModel = LoginViewModel(email: "356g", password: nil)
 		authScenePresenter.entered(loginViewModel: loginViewModel)
-		authScenePresenter.interactor = AuthInteractorMock()
+		
 		XCTAssertNil(authInteractor.model)
 		XCTAssertEqual(authViewMock.errorModel, errorModel)
 		
+		//3
+		reloadPresenter()
 		loginViewModel = LoginViewModel(email: nil, password: "hgsg445")
 		authScenePresenter.entered(loginViewModel: loginViewModel)
-		authScenePresenter.interactor = AuthInteractorMock()
+		
 		XCTAssertNil(authInteractor.model)
 		XCTAssertEqual(authViewMock.errorModel, errorModel)
 		
+		//4
+		reloadPresenter()
 		loginViewModel = LoginViewModel(email: "", password: "")
 		authScenePresenter.entered(loginViewModel: loginViewModel)
-		authScenePresenter.interactor = AuthInteractorMock()
+		
 		XCTAssertNil(authInteractor.model)
 		XCTAssertEqual(authViewMock.errorModel, errorModel)
+	}
+	
+	func reloadPresenter() {
+		authInteractor = AuthInteractorMock()
+		authScenePresenter.interactor = authInteractor
+		authViewMock = AuthViewMock()
+		authScenePresenter.view = authViewMock
 	}
 }
