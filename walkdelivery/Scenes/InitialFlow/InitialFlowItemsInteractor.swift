@@ -13,6 +13,7 @@ class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 	var output: InitialFlowItemsInteractorOutput?
 	var itemsStoreService: ItemsStoreServiceProtocol?
 	var authService: AuthServiceProtocol?
+	var itemsObserver: ItemsDownloadNotifiable?
 	
 	func requestItems() {
 		
@@ -20,6 +21,7 @@ class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 			
 			switch result {
 			case .Success( _):
+				self.output?.presentItemsScreen()
 				self.requestItemsForService()
 			case .NotRegistered:
 				self.output?.presentAuth()
@@ -46,7 +48,7 @@ class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 			
 			switch result {
 			case .Success(let items):
-				self?.output?.present(items: items)
+				self?.itemsObserver?.didDownload(items: items)
 			case .Failure(let error):
 				self?.output?.present(errorMessage: ErrorEntity(description: "\(String(describing: error))"))
 			}

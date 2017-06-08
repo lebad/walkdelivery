@@ -13,7 +13,7 @@ class InitialFlowItemsPresenter: InitialFlowItemsInteractorOutput {
 	var router: InitialFlowItemsRouterInput?
 	
 	func present(items: [ItemEntity]) {
-		router?.routeToDisplayedItemsScene()
+		itemsObserver?.didDownload(items: items)
 	}
 	
 	func present(errorMessage: ErrorEntity) {
@@ -22,5 +22,9 @@ class InitialFlowItemsPresenter: InitialFlowItemsInteractorOutput {
 	
 	func presentAuth() {
 		router?.routeToAuthScene()
+	}
+	
+	func presentItemsScreen() {
+		router?.routeToDisplayedItemsScene()
 	}
 }

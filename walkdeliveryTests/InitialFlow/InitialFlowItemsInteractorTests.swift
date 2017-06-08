@@ -14,6 +14,7 @@ class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
 	var items = [ItemEntity]()
 	var errorMessage: ErrorEntity?
 	var showAuthCalled = false
+	var presentItemsScreenCalled = false
 	
 	func present(items: [ItemEntity]) {
 		self.items = items
@@ -25,6 +26,10 @@ class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
 	
 	func presentAuth() {
 		showAuthCalled = true
+	}
+	
+	func presentItemsScreen() {
+		presentItemsScreenCalled = true
 	}
 }
 
@@ -98,8 +103,14 @@ class InitialFlowItemsInteractorTests: XCTestCase {
 		interactor = nil
         super.tearDown()
     }
+	
+	func testRequestItemsToPresentItemsScreen() {
+		interactor.requestItems()
+		
+		XCTAssertTrue(interactorOutput.presentItemsScreenCalled, "presentItemsScreen didn't call")
+	}
     
-    func testRequestItemsToPresent() {
+    func testRequestItemsToPresentItems() {
 		interactor.requestItems()
 		
 		XCTAssertTrue(interactorOutput.items.count > 0, "Items didn't receive")

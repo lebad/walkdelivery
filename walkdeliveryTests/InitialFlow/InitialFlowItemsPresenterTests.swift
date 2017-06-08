@@ -23,15 +23,28 @@ class InitialFlowItemsRouterMock: InitialFlowItemsRouterInput {
 	}
 }
 
+class ItemsDownloadNotifiableMock: ItemsDownloadNotifiable {
+	
+	var didDownloadItemsCalled = false
+	
+	func didDownload(items: [ItemEntity]) {
+		didDownloadItemsCalled = true
+	}
+}
+
 class InitialFlowItemsPresenterTests: XCTestCase {
 	
 	var presenter = InitialFlowItemsPresenter()
 	var router: InitialFlowItemsRouterMock!
+	var observer: ItemsDownloadNotifiableMock!
     
     override func setUp() {
         super.setUp()
 		router = InitialFlowItemsRouterMock()
 		presenter.router = router
+		
+		observer = ItemsDownloadNotifiableMock()
+		presenter.itemsObserver = observer
     }
     
     override func tearDown() {
@@ -39,9 +52,15 @@ class InitialFlowItemsPresenterTests: XCTestCase {
         super.tearDown()
     }
 	
-	func testRouteToDisplayItemsSceneAfterPresentItems() {
+	func testNotifyDownloadItemsAfterPresentItems() {
 		let itemEntity = ItemEntity(dict: [:])
 		presenter.present(items: [itemEntity])
+		
+		XCTAssertTrue(observer.didDownloadItemsCalled, "didDownloadItems didn't call")
+	}
+	
+	func testRouteToDisplayItemsSceneAfterPresentItemsScreen() {
+		presenter.presentItemsScreen()
 		
 		XCTAssertTrue(router.routeToDisplayedItemsSceneCalled, "Displayed items didn't call")
 	}

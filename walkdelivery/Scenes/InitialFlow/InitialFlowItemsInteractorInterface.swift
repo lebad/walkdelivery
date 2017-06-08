@@ -14,7 +14,7 @@ protocol InitialFlowItemsInteractorInput: class {
 }
 
 protocol InitialFlowItemsInteractorOutput: class {
-	func present(items: [ItemEntity])
 	func present(errorMessage: ErrorEntity)
 	func presentAuth()
+	func presentItemsScreen()
 }

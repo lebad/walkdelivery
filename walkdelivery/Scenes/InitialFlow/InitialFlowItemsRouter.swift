@@ -10,8 +10,11 @@ import UIKit
 
 class InitialFlowItemsRouter: InitialFlowItemsRouterInput {
 	
+	weak var itemsDownloadObserver: ItemsDownloadNotifiable?
+	
 	private var window: UIWindow?
 	private var controllerToShow: UIViewController?
+	weak private var displayedItemsAssembly: DisplayedItemsAssembly?
 	
 	func routeToAuthScene() {
 		createWindow()
@@ -21,7 +24,8 @@ class InitialFlowItemsRouter: InitialFlowItemsRouterInput {
 	
 	func routeToDisplayedItemsScene() {
 		createWindow()
-		//todo: get displayedItems controller
+		controllerToShow = displayedItemsAssembly?.configureView()
+		displayedItemsAssembly?.itemsDownloadObserver = itemsDownloadObserver
 		showController()
 	}
 	
