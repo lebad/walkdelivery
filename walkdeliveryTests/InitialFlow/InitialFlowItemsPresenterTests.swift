@@ -39,9 +39,9 @@ class InitialFlowItemsPresenterTests: XCTestCase {
         super.tearDown()
     }
 	
-	func testRouteToDisplayItemsSceneAfterPresentItems() {
-		let itemEntity = ItemEntity(dict: [:])
-//		presenter.present(items: [itemEntity])
+	func testPresentDisplayedItemsScreenToRouteToDisplayedItemsScreen() {
+		
+		presenter.presentDisplayedItemsScreen()
 		
 		XCTAssertTrue(router.routeToDisplayedItemsSceneCalled, "Displayed items didn't call")
 	}
