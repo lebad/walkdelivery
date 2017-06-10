@@ -41,7 +41,7 @@ class InitialFlowItemsPresenterTests: XCTestCase {
 	
 	func testRouteToDisplayItemsSceneAfterPresentItems() {
 		let itemEntity = ItemEntity(dict: [:])
-		presenter.present(items: [itemEntity])
+//		presenter.present(items: [itemEntity])
 		
 		XCTAssertTrue(router.routeToDisplayedItemsSceneCalled, "Displayed items didn't call")
 	}

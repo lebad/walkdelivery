@@ -11,3 +11,9 @@ import Foundation
 struct ErrorEntity: Error {
 	let description: String
 }
+
+extension ErrorEntity: Equatable {
+	static func ==(lhs: ErrorEntity, rhs: ErrorEntity) -> Bool {
+		return lhs.description == rhs.description
+	}
+}

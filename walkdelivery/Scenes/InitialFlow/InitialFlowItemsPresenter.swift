@@ -12,7 +12,7 @@ class InitialFlowItemsPresenter: InitialFlowItemsInteractorOutput {
 	
 	var router: InitialFlowItemsRouterInput?
 	
-	func present(items: [ItemEntity]) {
+	func presentDisplayedItemsScreen() {
 		router?.routeToDisplayedItemsScene()
 	}
 	

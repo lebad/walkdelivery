@@ -11,20 +11,20 @@ import Foundation
 class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 	
 	var output: InitialFlowItemsInteractorOutput?
-	var itemsStoreService: ItemsStoreServiceProtocol?
 	var authService: AuthServiceProtocol?
 	
-	func requestItems() {
+	func startFlow() {
 		
-		authService?.checkAuth { result in
+		authService?.checkAuth { [weak self] result in
 			
 			switch result {
 			case .Success( _):
-				self.requestItemsForService()
+				self?.output?.presentDisplayedItemsScreen()
+				self?.listenAuthChanges()
 			case .NotRegistered:
-				self.output?.presentAuth()
+				self?.output?.presentAuth()
 			case .Failure( _):
-				self.output?.presentAuth()
+				self?.output?.present(errorMessage: ErrorEntity(description: "Authorization Error"))
 			default: break
 			}
 		}
@@ -36,19 +36,6 @@ class InitialFlowItemsInteractor: InitialFlowItemsInteractorInput {
 			case.NotRegistered:
 				self.output?.presentAuth()
 			default: break
-			}
-		}
-	}
-	
-	private func requestItemsForService() {
-		let request = ItemsRequest()
-		itemsStoreService?.getItems(request: request) { [weak self] result in
-			
-			switch result {
-			case .Success(let items):
-				self?.output?.present(items: items)
-			case .Failure(let error):
-				self?.output?.present(errorMessage: ErrorEntity(description: "\(String(describing: error))"))
 			}
 		}
 	}

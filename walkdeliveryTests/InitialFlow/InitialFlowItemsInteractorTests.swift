@@ -11,12 +11,12 @@ import XCTest
 
 class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
 	
-	var items = [ItemEntity]()
 	var errorMessage: ErrorEntity?
-	var showAuthCalled = false
+	var presentAuthCalled = false
+	var presentDisplayedItemsScreenCalled = false
 	
-	func present(items: [ItemEntity]) {
-		self.items = items
+	func presentDisplayedItemsScreen() {
+		presentDisplayedItemsScreenCalled = true
 	}
 	
 	func present(errorMessage: ErrorEntity) {
@@ -24,36 +24,26 @@ class InitialFlowItemsInteractorOutputMock: InitialFlowItemsInteractorOutput {
 	}
 	
 	func presentAuth() {
-		showAuthCalled = true
-	}
-}
-
-class ItemsStoreServiceFake: ItemsStoreServiceProtocol {
-	
-	var isFailure = false
-	
-	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
-		let item = ItemEntity(dict: [:])
-		
-		if isFailure {
-			completionHandler(.Failure(.InnerError))
-			return
-		}
-		completionHandler(.Success([item]))
-	}
-	
-	func update(items:[ItemEntity], completionHandler: @escaping (ItemsResult<Void>) -> Void) {
-		
+		presentAuthCalled = true
 	}
 }
 
 class AuthServiceFake: AuthServiceProtocol {
 	
 	var hasAuth = true
-	var error: ErrorEntity?
+	var hasError = false
+	var authStateChanged = false {
+		didSet {
+			self.listenerCompletionHandler?(.NotRegistered)
+		}
+	}
+	
+	var listenAuthStateCalled = false
+	
+	var listenerCompletionHandler: ((AuthResult) -> Void)?
 	
 	func checkAuth(completionHandler: @escaping (AuthResult) -> Void) {
-		guard error == nil else {
+		guard hasError == false else {
 			completionHandler(.Failure(.InnerError))
 			return
 		}
@@ -70,7 +60,8 @@ class AuthServiceFake: AuthServiceProtocol {
 	}
 	
 	func listenAuthState(completionHandler: @escaping (AuthResult) -> Void) {
-		
+		listenAuthStateCalled = true
+		listenerCompletionHandler = completionHandler
 	}
 }
 
@@ -78,7 +69,6 @@ class InitialFlowItemsInteractorTests: XCTestCase {
 	
 	var interactor: InitialFlowItemsInteractor!
 	var interactorOutput: InitialFlowItemsInteractorOutputMock!
-	var itemsStoreService: ItemsStoreServiceFake!
 	var authService: AuthServiceFake!
     
     override func setUp() {
@@ -86,11 +76,9 @@ class InitialFlowItemsInteractorTests: XCTestCase {
 		
 		interactor = InitialFlowItemsInteractor()
 		interactorOutput = InitialFlowItemsInteractorOutputMock()
-		itemsStoreService = ItemsStoreServiceFake()
 		authService = AuthServiceFake()
 		
 		interactor.output = interactorOutput
-		interactor.itemsStoreService = itemsStoreService
 		interactor.authService = authService
     }
     
@@ -99,36 +87,36 @@ class InitialFlowItemsInteractorTests: XCTestCase {
         super.tearDown()
     }
     
-    func testRequestItemsToPresent() {
-		interactor.requestItems()
+    func testStartFlowToPresentItemsScreenIfHasAuth() {
+		interactor.startFlow()
 		
-		XCTAssertTrue(interactorOutput.items.count > 0, "Items didn't receive")
-		XCTAssertFalse(interactorOutput.showAuthCalled, "showAuth should not be called")
+		XCTAssertFalse(interactorOutput.presentAuthCalled, "presentAuth should not be called")
+		XCTAssertTrue(interactorOutput.presentDisplayedItemsScreenCalled, "presentDisplayedItemsScreen didn't call")
+		XCTAssertTrue(authService.listenAuthStateCalled)
     }
 	
-	func testRequestItemsToPresentError() {
-		itemsStoreService.isFailure = true
-		
-		interactor.requestItems()
-		
-		XCTAssertNotNil(interactorOutput.errorMessage, "Error didn't receive")
-	}
-	
-	func testRequestItemsToPresentAuth() {
+	func testStartFlowToPresentAuthIfNotHasAuth() {
 		authService.hasAuth = false
 		
-		interactor.requestItems()
+		interactor.startFlow()
 		
-		XCTAssertTrue(interactorOutput.items.count == 0, "Items should not be received")
-		XCTAssertTrue(interactorOutput.showAuthCalled, "showAuth didn't call")
+		XCTAssertTrue(interactorOutput.presentAuthCalled)
 	}
 	
-	func testRequestItemsToPresentAuthAfterGotError() {
-		authService.error = ErrorEntity(description: "")
+	func testStartFlowToPresentError() {
+		authService.hasError = true
+		let errorEntity = ErrorEntity(description: "Authorization Error")
 		
-		interactor.requestItems()
+		interactor.startFlow()
 		
-		XCTAssertTrue(interactorOutput.items.count == 0, "Items should not be received")
-		XCTAssertTrue(interactorOutput.showAuthCalled, "showAuth didn't call")
+		XCTAssertEqual(interactorOutput.errorMessage, errorEntity)
+	}
+	
+	func testPresentAuthAfterAuthStateChangedAndUserNotRegistered() {
+		interactor.startFlow()
+		
+		authService.authStateChanged = true
+		
+		XCTAssertTrue(interactorOutput.presentAuthCalled)
 	}
 }

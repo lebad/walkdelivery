@@ -9,12 +9,12 @@
 import Foundation
 
 protocol InitialFlowItemsInteractorInput: class {
-	func requestItems()
+	func startFlow()
 	func listenAuthChanges()
 }
 
 protocol InitialFlowItemsInteractorOutput: class {
-	func present(items: [ItemEntity])
+	func presentDisplayedItemsScreen()
 	func present(errorMessage: ErrorEntity)
 	func presentAuth()
 }
