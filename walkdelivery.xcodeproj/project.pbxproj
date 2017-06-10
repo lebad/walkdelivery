@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		535FF6B9752B1E2951D60257 /* Pods_walkdeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D5013D49AE16D22A24FC5 /* Pods_walkdeliveryTests.framework */; };
+		55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441C9C1EEBFD2900980551 /* DisplayedItemsInteractor.swift */; };
+		55441C9F1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441C9E1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift */; };
+		55441CA11EEBFE9C00980551 /* DisplayedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */; };
+		55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */; };
+		55441CA51EEC010200980551 /* DisplayedItemsScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */; };
 		555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */; };
 		555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */; };
 		555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */; };
@@ -56,6 +61,11 @@
 /* Begin PBXFileReference section */
 		408D5013D49AE16D22A24FC5 /* Pods_walkdeliveryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_walkdeliveryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F13E919C41BD86BEDA56728 /* Pods-walkdelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-walkdelivery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-walkdelivery/Pods-walkdelivery.debug.xcconfig"; sourceTree = "<group>"; };
+		55441C9C1EEBFD2900980551 /* DisplayedItemsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsInteractor.swift; sourceTree = "<group>"; };
+		55441C9E1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsInteractorInterface.swift; sourceTree = "<group>"; };
+		55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsViewController.swift; sourceTree = "<group>"; };
+		55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsViewInterface.swift; sourceTree = "<group>"; };
+		55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsScreenAssembly.swift; sourceTree = "<group>"; };
 		555A1F681ECB1EBB00DA7A73 /* walkdelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walkdelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,7 +252,12 @@
 		55F77E381ECDC83F0094EF0F /* DisplayedItems */ = {
 			isa = PBXGroup;
 			children = (
+				55441C9E1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift */,
+				55441C9C1EEBFD2900980551 /* DisplayedItemsInteractor.swift */,
 				55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */,
+				55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */,
+				55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */,
+				55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */,
 			);
 			path = DisplayedItems;
 			sourceTree = "<group>";
@@ -500,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
 				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
@@ -509,21 +525,25 @@
 				55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */,
 				55D831831EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
+				55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */,
 				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,
 				55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */,
+				55441CA11EEBFE9C00980551 /* DisplayedItemsViewController.swift in Sources */,
 				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
 				55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
+				55441C9F1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
 				55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */,
 				55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */,
 				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
+				55441CA51EEC010200980551 /* DisplayedItemsScreenAssembly.swift in Sources */,
 				55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

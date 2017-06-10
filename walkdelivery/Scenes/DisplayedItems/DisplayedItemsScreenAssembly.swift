@@ -1,21 +1,21 @@
 //
-//  AuthSceneAssembly.swift
+//  DisplayedItemsScreenAssembly.swift
 //  walkdelivery
 //
-//  Created by AndreyLebedev on 03/06/2017.
+//  Created by AndreyLebedev on 10/06/2017.
 //  Copyright © 2017 lebedac. All rights reserved.
 //
 
 import UIKit
 
-class AuthSceneAssembly {
+class DisplayedItemsScreenAssembly {
 	
 	static func configureView() -> UIViewController {
-		let viewController = AuthViewController()
-		let interactor = AuthSceneInteractor()
-		interactor.authService = AuthService.sharedInstance
+		let viewController = DisplayedItemsViewController()
+		let interactor = DisplayedItemsInteractor()
+		interactor.itemsStoreService = ItemsStoreService()
 		
-		let presenter = AuthScenePresenter()
+		let presenter = DisplayedItemsPresenter()
 		presenter.view = viewController
 		presenter.interactor = interactor
 		
@@ -24,5 +24,4 @@ class AuthSceneAssembly {
 		
 		return viewController
 	}
-	
 }

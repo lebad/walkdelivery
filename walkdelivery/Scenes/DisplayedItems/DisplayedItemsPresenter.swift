@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class DisplayedItemsPresenter {
+	
+	weak var view: DisplayedItemsViewInput?
+	var interactor: DisplayedItemsInteractorInput?
+}
+
+extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
+	
+}
+
+extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
+	
+}
