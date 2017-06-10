@@ -18,6 +18,7 @@ class AuthSceneAssembly {
 		let presenter = AuthScenePresenter()
 		presenter.view = viewController
 		presenter.interactor = interactor
+		presenter.router = AuthSceneRouter()
 		
 		viewController.output = presenter
 		interactor.output = presenter

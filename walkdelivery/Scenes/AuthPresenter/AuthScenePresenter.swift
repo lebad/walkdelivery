@@ -12,16 +12,18 @@ class AuthScenePresenter {
 	
 	weak var view: AuthViewInput?
 	var interactor: AuthSceneInteractorInput?
+	var router: AuthSceneRouterInput?
 }
 
 extension AuthScenePresenter: AuthSceneInteractorOutput {
 	
 	func presentSuccessSignup(user: UserEntity) {
-		
+		router?.routeToDisplayedItemsScene()
 	}
 	
 	func presentError() {
-		
+		let errorModel = ErrorViewModel(description: "Error was occured. Please try again.")
+		view?.show(errorModel: errorModel)
 	}
 }
 

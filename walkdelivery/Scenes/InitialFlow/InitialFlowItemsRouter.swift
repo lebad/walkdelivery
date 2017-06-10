@@ -21,7 +21,7 @@ class InitialFlowItemsRouter: InitialFlowItemsRouterInput {
 	
 	func routeToDisplayedItemsScene() {
 		createWindow()
-		//todo: get displayedItems controller
+		controllerToShow = DisplayedItemsScreenAssembly.configureView()
 		showController()
 	}
 	
@@ -34,7 +34,12 @@ class InitialFlowItemsRouter: InitialFlowItemsRouterInput {
 	}
 	
 	private func showController() {
-		window?.rootViewController = controllerToShow
+		guard let currentVC = controllerToShow else { return }
+		
+		let navVC = UINavigationController(rootViewController: currentVC)
+		navVC.isNavigationBarHidden = true
+		navVC.isToolbarHidden = true
+		window?.rootViewController = navVC
 		window?.makeKeyAndVisible()
 	}
 }

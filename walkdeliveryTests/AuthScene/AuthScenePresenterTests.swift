@@ -46,12 +46,19 @@ class AuthScenePresenterTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		
-		
+		reloadPresenter()
     }
     
     override func tearDown() {
         super.tearDown()
     }
+	
+	func reloadPresenter() {
+		authInteractor = AuthInteractorMock()
+		authScenePresenter.interactor = authInteractor
+		authViewMock = AuthViewMock()
+		authScenePresenter.view = authViewMock
+	}
 	
 	func testWhenViewIsPreparedSetupViews() {
 		authViewMock = AuthViewMock()
@@ -121,10 +128,11 @@ class AuthScenePresenterTests: XCTestCase {
 		XCTAssertEqual(authViewMock.errorModel, errorModel)
 	}
 	
-	func reloadPresenter() {
-		authInteractor = AuthInteractorMock()
-		authScenePresenter.interactor = authInteractor
-		authViewMock = AuthViewMock()
-		authScenePresenter.view = authViewMock
+	func testWhenPresentErrorShowError() {
+		let errorModel = ErrorViewModel(description: "Error was occured. Please try again.")
+		
+		authScenePresenter.presentError()
+		
+		XCTAssertEqual(authViewMock.errorModel, errorModel)
 	}
 }

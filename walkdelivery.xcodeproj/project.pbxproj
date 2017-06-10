@@ -13,6 +13,8 @@
 		55441CA11EEBFE9C00980551 /* DisplayedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */; };
 		55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */; };
 		55441CA51EEC010200980551 /* DisplayedItemsScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */; };
+		55441CA71EEC06AF00980551 /* AuthSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */; };
+		55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */; };
 		555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */; };
 		555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */; };
 		555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */; };
@@ -66,6 +68,8 @@
 		55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsViewController.swift; sourceTree = "<group>"; };
 		55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsViewInterface.swift; sourceTree = "<group>"; };
 		55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsScreenAssembly.swift; sourceTree = "<group>"; };
+		55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneRouter.swift; sourceTree = "<group>"; };
+		55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneRouterInterface.swift; sourceTree = "<group>"; };
 		555A1F681ECB1EBB00DA7A73 /* walkdelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walkdelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				55D8316F1EE285FA00989738 /* AuthViewInterface.swift */,
 				55D8316D1EE2851F00989738 /* AuthViewController.swift */,
 				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
+				55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */,
+				55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */,
 				55A650E91EE7E6D800961C40 /* ViewModels */,
 				55DC922B1EE34A5100744BA5 /* Views */,
 			);
@@ -515,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55441CA71EEC06AF00980551 /* AuthSceneRouter.swift in Sources */,
 				55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
@@ -525,6 +532,7 @@
 				55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */,
 				55D831831EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
+				55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */,
 				55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */,
 				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,

@@ -41,7 +41,6 @@ class AuthViewController: UIViewController {
 extension AuthViewController: AuthViewInput {
 	
 	func setupViews() {
-		view.translatesAutoresizingMaskIntoConstraints = false
 		view.backgroundColor = UIColor.lightGray
 		setupLoginView()
 	}
@@ -53,9 +52,10 @@ extension AuthViewController: AuthViewInput {
 		self.view.addSubview(loginView)
 		
 		loginView.snp.makeConstraints { make in
-			make.center.equalTo(self.view)
-			make.leftMargin.equalTo(self.view).offset(LoginViewLeft)
-			make.rightMargin.equalTo(self.view).offset(LoginViewLeft)
+			let superView = self.view!
+			make.center.equalTo(superView)
+			let width = superView.bounds.width - 2 * LoginViewLeft;
+			make.width.equalTo(width)
 		}
 		loginView.updateHeight()
 	}
