@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DisplayedItemsInteractorInput: class {
-	
+	func requestItems()
 }
 
 protocol DisplayedItemsInteractorOutput: class {

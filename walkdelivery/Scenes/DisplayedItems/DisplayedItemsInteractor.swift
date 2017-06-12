@@ -16,4 +16,15 @@ class DisplayedItemsInteractor {
 
 extension DisplayedItemsInteractor: DisplayedItemsInteractorInput {
 	
+	func requestItems() {
+		let request = ItemsRequest()
+		itemsStoreService?.getItems(request: request) { result in
+			switch result {
+			case .Success(let remoteItems):
+				break
+			case .Failure( _):
+				break
+			}
+		}
+	}
 }

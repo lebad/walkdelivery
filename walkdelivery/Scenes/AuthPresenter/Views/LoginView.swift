@@ -85,8 +85,6 @@ class LoginView: UIView {
 	}
 	
 	override func updateConstraints() {
-		super.updateConstraints()
-		
 		if didSetupConstraints == false {
 			
 			setupEmailViewConstraints()
@@ -96,6 +94,7 @@ class LoginView: UIView {
 			
 			didSetupConstraints = true
 		}
+		super.updateConstraints()
 	}
 	
 	private func setupEmailViewConstraints() {

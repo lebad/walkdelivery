@@ -9,9 +9,11 @@
 import Foundation
 
 protocol DisplayedItemsViewInput: class {
-	
+	func setupViews()
+	func showDownloadingStarted()
 }
 
 protocol DisplayedItemsViewOutput: class {
-	
+	func viewPrepared()
+	func numberOfRows() -> Int
 }

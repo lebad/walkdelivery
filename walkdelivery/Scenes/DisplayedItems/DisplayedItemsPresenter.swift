@@ -20,4 +20,13 @@ extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 
 extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	
+	func viewPrepared() {
+		interactor?.requestItems()
+		view?.setupViews()
+		view?.showDownloadingStarted()
+	}
+	
+	func numberOfRows() -> Int {
+		return 1
+	}
 }
