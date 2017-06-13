@@ -32,3 +32,12 @@ extension ItemEntity {
 		return dict
 	}
 }
+
+extension ItemEntity: Equatable {
+	static func ==(lhs: ItemEntity, rhs: ItemEntity) -> Bool {
+		return lhs.uid == rhs.uid &&
+		lhs.name == rhs.name &&
+		lhs.description == rhs.description &&
+		lhs.imageURLString == rhs.imageURLString
+	}
+}

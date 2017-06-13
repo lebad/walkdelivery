@@ -31,10 +31,6 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 		self.tableView.dataSource = self
 		self.view.addSubview(self.tableView)
 	}
-	
-	func showDownloadingStarted() {
-		
-	}
 }
 
 extension DisplayedItemsViewController: UITableViewDataSource {

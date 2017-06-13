@@ -18,10 +18,10 @@ extension DisplayedItemsInteractor: DisplayedItemsInteractorInput {
 	
 	func requestItems() {
 		let request = ItemsRequest()
-		itemsStoreService?.getItems(request: request) { result in
+		itemsStoreService?.getItems(request: request) { [weak self] result in
 			switch result {
 			case .Success(let remoteItems):
-				break
+				self?.output?.present(items: remoteItems)
 			case .Failure( _):
 				break
 			}

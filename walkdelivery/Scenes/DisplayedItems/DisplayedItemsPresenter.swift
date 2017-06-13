@@ -12,10 +12,18 @@ class DisplayedItemsPresenter {
 	
 	weak var view: DisplayedItemsViewInput?
 	var interactor: DisplayedItemsInteractorInput?
+	weak var progressTaskObject: TaskProgressShowable?
 }
 
 extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 	
+	func present(items: [ItemEntity]) {
+		
+	}
+	
+	func present(error: ErrorEntity) {
+		
+	}
 }
 
 extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
@@ -23,7 +31,7 @@ extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	func viewPrepared() {
 		interactor?.requestItems()
 		view?.setupViews()
-		view?.showDownloadingStarted()
+		progressTaskObject?.showStart()
 	}
 	
 	func numberOfRows() -> Int {

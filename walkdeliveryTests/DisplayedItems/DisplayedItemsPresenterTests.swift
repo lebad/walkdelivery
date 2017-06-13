@@ -12,14 +12,9 @@ import XCTest
 class DisplayedItemsViewMock: DisplayedItemsViewInput {
 	
 	var setupViewsCalled = false
-	var showDownloadingStartedCalled = false
 	
 	func setupViews() {
 		setupViewsCalled = true
-	}
-	
-	func showDownloadingStarted() {
-		showDownloadingStartedCalled = true
 	}
 }
 
@@ -32,11 +27,26 @@ class DisplayedItemsInteractorMock: DisplayedItemsInteractorInput {
 	}
 }
 
+class ProgressTaskMock: TaskProgressShowable {
+	
+	var showStartCalled = false
+	var showFinishCalled = false
+	
+	func showStart() {
+		showStartCalled = true
+	}
+	
+	func showFinish() {
+		showFinishCalled = true
+	}
+}
+
 class DisplayedItemsPresenterTests: XCTestCase {
 	
 	var presenter: DisplayedItemsPresenter!
 	var view: DisplayedItemsViewMock!
 	var interactor: DisplayedItemsInteractorMock!
+	var progressTask: ProgressTaskMock!
     
     override func setUp() {
         super.setUp()
@@ -44,9 +54,11 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		
 		view = DisplayedItemsViewMock()
 		interactor = DisplayedItemsInteractorMock()
+		progressTask = ProgressTaskMock()
 		
 		presenter.view = view
 		presenter.interactor = interactor
+		presenter.progressTaskObject = progressTask
     }
     
     override func tearDown() {
@@ -69,7 +81,7 @@ class DisplayedItemsPresenterTests: XCTestCase {
 	func testShowDownloadingStartedAfterViewPrepared() {
 		presenter.viewPrepared()
 		
-		XCTAssertTrue(view.showDownloadingStartedCalled)
+		XCTAssertTrue(progressTask.showStartCalled)
 	}
 	
 	func testReturnNumberOfRowsNotEqualZero() {

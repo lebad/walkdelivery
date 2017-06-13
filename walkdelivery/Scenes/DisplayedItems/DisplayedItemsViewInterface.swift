@@ -10,7 +10,6 @@ import Foundation
 
 protocol DisplayedItemsViewInput: class {
 	func setupViews()
-	func showDownloadingStarted()
 }
 
 protocol DisplayedItemsViewOutput: class {

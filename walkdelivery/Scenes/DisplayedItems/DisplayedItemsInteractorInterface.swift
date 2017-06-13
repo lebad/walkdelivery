@@ -13,5 +13,6 @@ protocol DisplayedItemsInteractorInput: class {
 }
 
 protocol DisplayedItemsInteractorOutput: class {
-	
+	func present(items: [ItemEntity])
+	func present(error: ErrorEntity)
 }
