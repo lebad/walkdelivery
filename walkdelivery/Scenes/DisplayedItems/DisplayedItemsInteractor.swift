@@ -23,7 +23,7 @@ extension DisplayedItemsInteractor: DisplayedItemsInteractorInput {
 			case .Success(let remoteItems):
 				self?.output?.present(items: remoteItems)
 			case .Failure( _):
-				break
+				self?.output?.present(error: ErrorEntity(description: ""))
 			}
 		}
 	}

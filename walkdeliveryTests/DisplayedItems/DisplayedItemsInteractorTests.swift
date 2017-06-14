@@ -26,10 +26,12 @@ class DisplayedItemsPresenterMock: DisplayedItemsInteractorOutput {
 class StoreServiceMock: ItemsStoreServiceProtocol {
 	
 	var items: [ItemEntity]?
-	var result: ItemsResult?
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
-		guard let items = self.items, items.count > 0 else { return }
+		guard let items = self.items, items.count > 0 else {
+			completionHandler(.Failure(.InnerError))
+			return
+		}
 		completionHandler(.Success(items))
 	}
 	
@@ -74,12 +76,11 @@ class DisplayedItemsInteractorTests: XCTestCase {
 	}
 	
 	func testRequestItemsToCallPresentError() {
-		let error = ErrorEntity(description: "Error")
-		storeService
+		let error = ErrorEntity(description: "")
 		
 		interactor.requestItems()
 		
 		XCTAssertTrue(presenter.items.count == 0)
-		XCTAssertEqual(presenter.error, <#T##expression2: [Equatable]##[Equatable]#>)
+		XCTAssertEqual(presenter.error, error)
 	}
 }

@@ -187,6 +187,13 @@
 			path = walkdelivery;
 			sourceTree = "<group>";
 		};
+		559BAB471EF13C8100957416 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		55A650E61EE7E31C00961C40 /* AuthScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +305,7 @@
 				55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */,
 				55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */,
 				55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */,
+				559BAB471EF13C8100957416 /* ViewModels */,
 				55C65E191EEEE7FF008A23DB /* Cells */,
 			);
 			path = DisplayedItems;
