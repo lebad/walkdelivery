@@ -12,9 +12,23 @@ import XCTest
 class DisplayedItemsViewMock: DisplayedItemsViewInput {
 	
 	var setupViewsCalled = false
+	var showItemsCalled = false
+	var items = [DisplayedItemViewModel]()
+	var showErrorStringCalled = false
+	var errorString = String()
 	
 	func setupViews() {
 		setupViewsCalled = true
+	}
+	
+	func show(items: [DisplayedItemViewModel]) {
+		showItemsCalled = true
+		self.items = items
+	}
+	
+	func show(errorString: String) {
+		showErrorStringCalled = true
+		self.errorString = errorString
 	}
 }
 
@@ -88,5 +102,47 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		let rows = presenter.numberOfRows()
 		
 		XCTAssertTrue(rows > 0)
+	}
+	
+	func testShowItemsAfterPresentItems() {
+		let items = [
+			ItemEntity(uid: "uid1", name: "item1", description: "descr1", imageURLString: "imageurl1"),
+			ItemEntity(uid: "uid2", name: "item2", description: "descr2", imageURLString: "imageurl2"),
+			ItemEntity(uid: "uid3", name: "item3", description: "descr3", imageURLString: "imageurl3")
+		]
+		
+		presenter.present(items: items)
+		
+		XCTAssertTrue(view.showItemsCalled)
+		XCTAssertTrue(view.items.count > 0)
+		
+		guard view.items.count > 0 else { return }
+		
+		for (index, _) in items.enumerated() {
+			XCTAssertEqual(items[index].uid, view.items[index].uid)
+			XCTAssertEqual(items[index].name, view.items[index].name)
+			XCTAssertEqual(items[index].description, view.items[index].description)
+			XCTAssertEqual(items[index].imageURLString, view.items[index].imageURLString)
+		}
+	}
+	
+	func testShowErrorAfterPresentEmptyItems() {
+		let items = [ItemEntity]()
+		let errorString = "Error occured"
+		
+		presenter.present(items: items)
+		
+		XCTAssertFalse(view.showItemsCalled)
+		XCTAssertTrue(view.showErrorStringCalled)
+		XCTAssertEqual(view.errorString, errorString)
+	}
+	
+	func testShowErrorAfterPresentError() {
+		let errorEntity = ErrorEntity(description: "Error entity string")
+		
+		presenter.present(error: errorEntity)
+		
+		XCTAssertTrue(view.showErrorStringCalled)
+		XCTAssertEqual(view.errorString, errorEntity.description)
 	}
 }

@@ -19,10 +19,21 @@ extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 	
 	func present(items: [ItemEntity]) {
 		
+		guard items.count > 0 else {
+			view?.show(errorString: "Error occured")
+			return
+		}
+		
+		var viewModelItems = [DisplayedItemViewModel]()
+		for itemEntity in items {
+			let itemViewModel = DisplayedItemViewModel(itemEntity: itemEntity)
+			viewModelItems.append(itemViewModel)
+		}
+		view?.show(items: viewModelItems)
 	}
 	
 	func present(error: ErrorEntity) {
-		
+		view?.show(errorString: error.description)
 	}
 }
 

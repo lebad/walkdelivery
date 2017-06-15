@@ -39,6 +39,18 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 		setupActivityIndicator()
 	}
 	
+	func show(items: [DisplayedItemViewModel]) {
+		tableView.reloadData()
+	}
+	
+	func show(errorString: String) {
+		let alert = UIAlertController(title: nil,
+		                              message: errorString,
+		                              preferredStyle: .alert)
+		let okAction = UIAlertAction(title: "OK", style: .default)
+		alert.addAction(okAction)
+	}
+	
 	func setupTableView() {
 		tableView.dataSource = self
 		self.view.addSubview(tableView)
