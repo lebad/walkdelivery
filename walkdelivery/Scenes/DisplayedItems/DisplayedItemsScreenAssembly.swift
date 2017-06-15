@@ -18,6 +18,7 @@ class DisplayedItemsScreenAssembly {
 		let presenter = DisplayedItemsPresenter()
 		presenter.view = viewController
 		presenter.interactor = interactor
+		presenter.progressTaskObject = viewController
 		
 		viewController.output = presenter
 		interactor.output = presenter
