@@ -61,6 +61,12 @@ class DisplayedItemsPresenterTests: XCTestCase {
 	var view: DisplayedItemsViewMock!
 	var interactor: DisplayedItemsInteractorMock!
 	var progressTask: ProgressTaskMock!
+	
+	let testItems = [
+		ItemEntity(uid: "uid1", name: "item1", description: "descr1", imageURLString: "imageurl1"),
+		ItemEntity(uid: "uid2", name: "item2", description: "descr2", imageURLString: "imageurl2"),
+		ItemEntity(uid: "uid3", name: "item3", description: "descr3", imageURLString: "imageurl3")
+	]
     
     override func setUp() {
         super.setUp()
@@ -99,17 +105,15 @@ class DisplayedItemsPresenterTests: XCTestCase {
 	}
 	
 	func testReturnNumberOfRowsNotEqualZero() {
+		presenter.present(items: testItems)
+		
 		let rows = presenter.numberOfRows()
 		
-		XCTAssertTrue(rows > 0)
+		XCTAssertTrue(rows == testItems.count)
 	}
 	
 	func testShowItemsAfterPresentItems() {
-		let items = [
-			ItemEntity(uid: "uid1", name: "item1", description: "descr1", imageURLString: "imageurl1"),
-			ItemEntity(uid: "uid2", name: "item2", description: "descr2", imageURLString: "imageurl2"),
-			ItemEntity(uid: "uid3", name: "item3", description: "descr3", imageURLString: "imageurl3")
-		]
+		let items = testItems
 		
 		presenter.present(items: items)
 		
