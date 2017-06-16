@@ -13,6 +13,8 @@ class DisplayedItemsPresenter {
 	weak var view: DisplayedItemsViewInput?
 	var interactor: DisplayedItemsInteractorInput?
 	weak var progressTaskObject: TaskProgressShowable?
+	
+	var viewModelItems = [DisplayedItemViewModel]()
 }
 
 extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
@@ -24,12 +26,11 @@ extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 			return
 		}
 		
-		var viewModelItems = [DisplayedItemViewModel]()
 		for itemEntity in items {
 			let itemViewModel = DisplayedItemViewModel(itemEntity: itemEntity)
-			viewModelItems.append(itemViewModel)
+			self.viewModelItems.append(itemViewModel)
 		}
-		view?.show(items: viewModelItems)
+		view?.show(items: self.viewModelItems)
 	}
 	
 	func present(error: ErrorEntity) {
@@ -46,6 +47,6 @@ extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	}
 	
 	func numberOfRows() -> Int {
-		return 1
+		return viewModelItems.count
 	}
 }
