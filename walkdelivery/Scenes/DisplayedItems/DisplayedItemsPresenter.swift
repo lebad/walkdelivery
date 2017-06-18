@@ -30,10 +30,12 @@ extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 			let itemViewModel = DisplayedItemViewModel(itemEntity: itemEntity)
 			self.viewModelItems.append(itemViewModel)
 		}
+		progressTaskObject?.showFinish()
 		view?.show(items: self.viewModelItems)
 	}
 	
 	func present(error: ErrorEntity) {
+		progressTaskObject?.showFinish()
 		view?.show(errorString: error.description)
 	}
 }

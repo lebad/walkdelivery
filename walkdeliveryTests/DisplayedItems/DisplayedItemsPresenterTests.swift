@@ -104,6 +104,18 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		XCTAssertTrue(progressTask.showStartCalled)
 	}
 	
+	func testShowDownloadingFinishAfterPresentItemsOrPresentError() {
+		presenter.present(items: testItems)
+		
+		XCTAssertTrue(progressTask.showFinishCalled)
+	}
+	
+	func testShowDownloadingFinishAfterPresentError () {
+		presenter.present(error: ErrorEntity(description: ""))
+		
+		XCTAssertTrue(progressTask.showFinishCalled)
+	}
+	
 	func testReturnNumberOfRowsNotEqualZero() {
 		presenter.present(items: testItems)
 		
