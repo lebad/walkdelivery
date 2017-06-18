@@ -102,3 +102,21 @@ class DisplayedItemCell: UITableViewCell {
 		}
 	}
 }
+
+extension DisplayedItemCell: CellViewModelConfigurable {
+	
+	func set(_ viewModel: ViewModelCellRepresentable) {
+		guard let currentViewModel = viewModel as? DisplayedItemViewModel else {
+			fatalError("viewModel has to be \(String(describing: DisplayedItemViewModel.self)) type")
+		}
+		
+		nameLabel.text = currentViewModel.name
+	}
+}
+
+extension DisplayedItemViewModel: ViewModelCellRepresentable {
+	
+	func cellType() -> UITableViewCell.Type {
+		return DisplayedItemCell.self
+	}
+}

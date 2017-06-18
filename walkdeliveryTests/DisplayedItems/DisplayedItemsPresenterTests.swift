@@ -134,11 +134,11 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		
 		guard view.items.count > 0 else { return }
 		
-		for (index, _) in items.enumerated() {
-			XCTAssertEqual(items[index].uid, view.items[index].uid)
-			XCTAssertEqual(items[index].name, view.items[index].name)
-			XCTAssertEqual(items[index].description, view.items[index].description)
-			XCTAssertEqual(items[index].imageURLString, view.items[index].imageURLString)
+		for (index, item) in items.enumerated() {
+			XCTAssertEqual(item.uid, view.items[index].uid)
+			XCTAssertEqual(item.name, view.items[index].name)
+			XCTAssertEqual(item.description, view.items[index].description)
+			XCTAssertEqual(item.imageURLString, view.items[index].imageURLString)
 		}
 	}
 	
@@ -160,5 +160,13 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		
 		XCTAssertTrue(view.showErrorStringCalled)
 		XCTAssertEqual(view.errorString, errorEntity.description)
+	}
+	
+	func testViewModelAtIndex() {
+		presenter.present(items: testItems)
+		
+		for (index, item) in view.items.enumerated() {
+			XCTAssertEqual(item, presenter.viewModel(index) as! DisplayedItemViewModel)
+		}
 	}
 }

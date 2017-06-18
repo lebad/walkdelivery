@@ -75,7 +75,14 @@ extension DisplayedItemsViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		guard let output = self.output else { return UITableViewCell() }
+		
+		let viewModel = output.viewModel(indexPath.row)
+		let cellType = viewModel.cellType()
+		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellType), for: indexPath)
+		let configurableCell = cell as! CellViewModelConfigurable
+		configurableCell.set(viewModel)
+		return cell
 	}
 }
 

@@ -23,3 +23,12 @@ extension DisplayedItemViewModel {
 		imageURLString = itemEntity.imageURLString
 	}
 }
+
+extension DisplayedItemViewModel: Equatable {
+	static func ==(lhs: DisplayedItemViewModel, rhs: DisplayedItemViewModel) -> Bool {
+		return lhs.uid == rhs.uid &&
+		lhs.name == rhs.name &&
+		lhs.description == rhs.description &&
+		lhs.imageURLString == rhs.imageURLString
+	}
+}

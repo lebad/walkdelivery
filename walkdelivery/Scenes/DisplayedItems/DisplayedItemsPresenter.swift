@@ -51,4 +51,8 @@ extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	func numberOfRows() -> Int {
 		return viewModelItems.count
 	}
+	
+	func viewModel(_ index: Int) -> ViewModelCellRepresentable {
+		return viewModelItems[index]
+	}
 }

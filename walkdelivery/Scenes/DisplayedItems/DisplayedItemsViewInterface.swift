@@ -17,4 +17,5 @@ protocol DisplayedItemsViewInput: class {
 protocol DisplayedItemsViewOutput: class {
 	func viewPrepared()
 	func numberOfRows() -> Int
+	func viewModel(_ index: Int) -> ViewModelCellRepresentable
 }
