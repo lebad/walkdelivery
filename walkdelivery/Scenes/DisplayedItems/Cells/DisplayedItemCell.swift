@@ -12,16 +12,16 @@ class DisplayedItemCell: UITableViewCell {
 	
 	var mainImageView: UIImageView = {
 		let imageView = UIImageView(frame: CGRect.zero)
+		imageView.backgroundColor = UIColor.blue
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
 	}()
 	
 	var nameLabel: UILabel = {
 		let label = UILabel(frame: CGRect.zero)
+		label.backgroundColor = UIColor.red
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
-		label.setContentHuggingPriority(1000, for: .vertical)
-		label.setContentCompressionResistancePriority(1000, for: .vertical)
 		return label
 	}()
 	
@@ -29,7 +29,6 @@ class DisplayedItemCell: UITableViewCell {
 		let label = UILabel(frame: CGRect.zero)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
-		label.setContentCompressionResistancePriority(1000, for: .vertical)
 		return label
 	}()
 	
@@ -45,23 +44,24 @@ class DisplayedItemCell: UITableViewCell {
 	private var didSetupConstraints = false
 	
 	// MARK: Constants
-	private let MainImageViewLeft = 8
-	private let MainImageViewTop = 8
+	private let MainImageViewLeft: CGFloat = 8.0
+	private let MainImageViewTop: CGFloat = 8.0
 	private let MainImageViewWidthPersent: CGFloat = 0.3
-	private let MainImageViewBottom = 8
-	private let NameLabelLeft = 8
-	private let NameLabelTop = 8
-	private let NameLabelRight = 8
-	private let NameLabelBottom = 8
-	private let DescriptionLeft = 8
-	private let DescriptionRight = 8
-	private let DescriptionBottom = 8
+	private let MainImageViewBottom: CGFloat = 8.0
+	private let NameLabelLeft: CGFloat = 8.0
+	private let NameLabelTop: CGFloat = 8.0
+	private let NameLabelRight: CGFloat = 8.0
+	private let NameLabelBottom: CGFloat = 8.0
+	private let DescriptionLeft: CGFloat = 8.0
+	private let DescriptionRight: CGFloat = 8.0
+	private let DescriptionBottom: CGFloat = 8.0
 	
 	private func setupViews() {
 		self.translatesAutoresizingMaskIntoConstraints = false
+		self.contentView.backgroundColor = UIColor.green
 		contentView.addSubview(mainImageView)
 		contentView.addSubview(nameLabel)
-		contentView.addSubview(desciptionLabel)
+//		contentView.addSubview(desciptionLabel)
 		self.setNeedsUpdateConstraints()
 	}
 	
@@ -69,7 +69,7 @@ class DisplayedItemCell: UITableViewCell {
 		if didSetupConstraints == false {
 			setupMainImageViewConstraints()
 			setupNameLabelConstraints()
-			setupDescriptionLabelConstraints()
+//			setupDescriptionLabelConstraints()
 		}
 		super.updateConstraints()
 	}
@@ -77,24 +77,28 @@ class DisplayedItemCell: UITableViewCell {
 	private func setupMainImageViewConstraints() {
 		let width = contentView.bounds.width * MainImageViewWidthPersent
 		mainImageView.snp.makeConstraints { make in
-			make.left.equalTo(MainImageViewLeft)
-			make.top.equalTo(MainImageViewTop)
+			make.left.equalToSuperview().offset(MainImageViewLeft)
+			make.top.equalToSuperview().offset(MainImageViewTop)
 			make.width.equalTo(width)
 			make.height.equalTo(width)
-			make.bottom.greaterThanOrEqualTo(8)
+			make.bottom.equalToSuperview().offset(-MainImageViewBottom)
 		}
 	}
 	
 	private func setupNameLabelConstraints() {
 		nameLabel.snp.makeConstraints { make in
-			make.top.equalTo(NameLabelTop)
-			make.leading.equalTo(mainImageView).offset(NameLabelLeft)
-			make.trailing.equalTo(NameLabelRight)
-			make.bottom.equalTo(desciptionLabel).offset(NameLabelBottom)
+			make.top.equalToSuperview().offset(NameLabelTop)
+			make.left.equalTo(mainImageView.snp.right).offset(NameLabelLeft)
+			make.right.equalToSuperview().offset(-NameLabelRight)
+			make.bottom.greaterThanOrEqualTo(self.contentView.snp.bottom).priority(999)
 		}
+		nameLabel.setContentHuggingPriority(999, for: .vertical)
+//		nameLabel.setContentCompressionResistancePriority(999, for: .vertical)
 	}
 	
 	private func setupDescriptionLabelConstraints() {
+		self.desciptionLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
+		
 		desciptionLabel.snp.makeConstraints { make in
 			make.leading.equalTo(mainImageView).offset(DescriptionLeft)
 			make.trailing.equalTo(DescriptionRight)
@@ -111,6 +115,8 @@ extension DisplayedItemCell: CellViewModelConfigurable {
 		}
 		
 		nameLabel.text = currentViewModel.name
+//		nameLabel.text = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
+		desciptionLabel.text = currentViewModel.description
 	}
 }
 

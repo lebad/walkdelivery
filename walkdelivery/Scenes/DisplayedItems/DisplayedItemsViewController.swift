@@ -53,6 +53,11 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 	
 	func setupTableView() {
 		tableView.dataSource = self
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = 5.0
+		tableView.tableFooterView = UIView()
+		tableView.separatorStyle = .none
 		self.view.addSubview(tableView)
 		tableView.snp.makeConstraints { make in
 			make.size.equalToSuperview()
@@ -79,10 +84,9 @@ extension DisplayedItemsViewController: UITableViewDataSource {
 		
 		let viewModel = output.viewModel(indexPath.row)
 		let cellType = viewModel.cellType()
-		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellType), for: indexPath)
-		let configurableCell = cell as! CellViewModelConfigurable
-		configurableCell.set(viewModel)
-		return cell
+		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellType), for: indexPath) as! CellViewModelConfigurable
+		cell.set(viewModel)
+		return cell as! UITableViewCell
 	}
 }
 

@@ -12,6 +12,6 @@ protocol ViewModelCellRepresentable {
 	func cellType() -> UITableViewCell.Type
 }
 
-protocol CellViewModelConfigurable {
+protocol CellViewModelConfigurable: class {
 	func set(_ viewModel: ViewModelCellRepresentable)
 }
