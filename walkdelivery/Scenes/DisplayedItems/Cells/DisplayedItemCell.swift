@@ -21,15 +21,19 @@ class DisplayedItemCell: UITableViewCell {
 		let label = UILabel(frame: CGRect.zero)
 		label.backgroundColor = UIColor.red
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.numberOfLines = 0
 		return label
 	}()
 	
-	var desciptionLabel: UILabel = {
-		let label = UILabel(frame: CGRect.zero)
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.numberOfLines = 0
-		return label
+	var descriptionTextView: UITextView = {
+		let textView = UITextView(frame: CGRect.zero)
+		textView.backgroundColor = UIColor.brown
+		textView.translatesAutoresizingMaskIntoConstraints = false
+		textView.isEditable = false
+		textView.dataDetectorTypes = UIDataDetectorTypes()
+		textView.textContainer.lineFragmentPadding = 0;
+		textView.textContainerInset = UIEdgeInsets.zero;
+		textView.textContainer.lineBreakMode = .byTruncatingTail;
+		return textView
 	}()
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -61,7 +65,7 @@ class DisplayedItemCell: UITableViewCell {
 		self.contentView.backgroundColor = UIColor.green
 		contentView.addSubview(mainImageView)
 		contentView.addSubview(nameLabel)
-//		contentView.addSubview(desciptionLabel)
+		contentView.addSubview(descriptionTextView)
 		self.setNeedsUpdateConstraints()
 	}
 	
@@ -69,7 +73,7 @@ class DisplayedItemCell: UITableViewCell {
 		if didSetupConstraints == false {
 			setupMainImageViewConstraints()
 			setupNameLabelConstraints()
-//			setupDescriptionLabelConstraints()
+			setupDescriptionTextViewConstraint()
 		}
 		super.updateConstraints()
 	}
@@ -90,19 +94,16 @@ class DisplayedItemCell: UITableViewCell {
 			make.top.equalToSuperview().offset(NameLabelTop)
 			make.left.equalTo(mainImageView.snp.right).offset(NameLabelLeft)
 			make.right.equalToSuperview().offset(-NameLabelRight)
-			make.bottom.greaterThanOrEqualTo(self.contentView.snp.bottom).priority(999)
 		}
-		nameLabel.setContentHuggingPriority(999, for: .vertical)
-//		nameLabel.setContentCompressionResistancePriority(999, for: .vertical)
+		nameLabel.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
 	}
 	
-	private func setupDescriptionLabelConstraints() {
-		self.desciptionLabel.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
-		
-		desciptionLabel.snp.makeConstraints { make in
-			make.leading.equalTo(mainImageView).offset(DescriptionLeft)
-			make.trailing.equalTo(DescriptionRight)
-			make.bottom.equalTo(DescriptionBottom)
+	private func setupDescriptionTextViewConstraint() {
+		descriptionTextView.snp.makeConstraints {make in
+			make.top.equalTo(nameLabel.snp.bottom).offset(NameLabelBottom)
+			make.left.equalTo(mainImageView.snp.right).offset(DescriptionLeft)
+			make.right.equalToSuperview().offset(-DescriptionRight)
+			make.bottom.equalToSuperview().offset(-DescriptionBottom)
 		}
 	}
 }
@@ -113,10 +114,8 @@ extension DisplayedItemCell: CellViewModelConfigurable {
 		guard let currentViewModel = viewModel as? DisplayedItemViewModel else {
 			fatalError("viewModel has to be \(String(describing: DisplayedItemViewModel.self)) type")
 		}
-		
 		nameLabel.text = currentViewModel.name
-//		nameLabel.text = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
-		desciptionLabel.text = currentViewModel.description
+		descriptionTextView.text = currentViewModel.description
 	}
 }
 
