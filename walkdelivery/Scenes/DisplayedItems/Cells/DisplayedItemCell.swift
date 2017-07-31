@@ -12,21 +12,21 @@ class DisplayedItemCell: UITableViewCell {
 	
 	var mainImageView: UIImageView = {
 		let imageView = UIImageView(frame: CGRect.zero)
-		imageView.backgroundColor = UIColor.blue
+		imageView.backgroundColor = UIColor.backgroundPlaceholderImageColor()
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		return imageView
 	}()
 	
 	var nameLabel: UILabel = {
 		let label = UILabel(frame: CGRect.zero)
-		label.backgroundColor = UIColor.red
+		label.textColor = UIColor.mainTextColor()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
 	}()
 	
 	var descriptionTextView: UITextView = {
 		let textView = UITextView(frame: CGRect.zero)
-		textView.backgroundColor = UIColor.brown
+		textView.textColor = UIColor.descriptionTextColor()
 		textView.translatesAutoresizingMaskIntoConstraints = false
 		textView.isEditable = false
 		textView.dataDetectorTypes = UIDataDetectorTypes()
@@ -62,7 +62,7 @@ class DisplayedItemCell: UITableViewCell {
 	
 	private func setupViews() {
 		self.translatesAutoresizingMaskIntoConstraints = false
-		self.contentView.backgroundColor = UIColor.green
+		self.contentView.backgroundColor = UIColor.displayedItemCellBackgroundColor()
 		contentView.addSubview(mainImageView)
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(descriptionTextView)

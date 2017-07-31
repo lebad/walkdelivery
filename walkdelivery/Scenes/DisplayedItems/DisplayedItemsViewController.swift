@@ -15,6 +15,7 @@ class DisplayedItemsViewController: UIViewController {
 	
 	var tableView: UITableView = {
 		let tableView = UITableView(frame: CGRect.zero, style: .plain)
+		tableView.backgroundColor = UIColor.clear
 		tableView.register(DisplayedItemCell.self, forCellReuseIdentifier: String(describing: DisplayedItemCell.self))
 		return tableView
 	}()
@@ -34,7 +35,7 @@ class DisplayedItemsViewController: UIViewController {
 extension DisplayedItemsViewController: DisplayedItemsViewInput {
 	
 	func setupViews() {
-		self.view.backgroundColor = UIColor.white
+		self.view.backgroundColor = UIColor.contentBackgroundColor()
 		self.navigationController?.navigationBar.barTintColor = UIColor.navBarColor()
 		setupTableView()
 		setupActivityIndicator()
