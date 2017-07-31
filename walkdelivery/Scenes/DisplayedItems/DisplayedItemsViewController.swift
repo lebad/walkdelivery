@@ -17,6 +17,7 @@ class DisplayedItemsViewController: UIViewController {
 		let tableView = UITableView(frame: CGRect.zero, style: .plain)
 		tableView.backgroundColor = UIColor.clear
 		tableView.register(DisplayedItemCell.self, forCellReuseIdentifier: String(describing: DisplayedItemCell.self))
+		tableView.register(DisplayedItemSeparatorCell.self, forCellReuseIdentifier: String(describing: DisplayedItemSeparatorCell.self))
 		return tableView
 	}()
 	

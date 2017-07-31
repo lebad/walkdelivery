@@ -135,10 +135,11 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		guard view.items.count > 0 else { return }
 		
 		for (index, item) in items.enumerated() {
-			XCTAssertEqual(item.uid, view.items[index].uid)
-			XCTAssertEqual(item.name, view.items[index].name)
-			XCTAssertEqual(item.description, view.items[index].description)
-			XCTAssertEqual(item.imageURLString, view.items[index].imageURLString)
+			let nextIndex = index + 1 //because of separator
+			XCTAssertEqual(item.uid, view.items[nextIndex].uid)
+			XCTAssertEqual(item.name, view.items[nextIndex].name)
+			XCTAssertEqual(item.description, view.items[nextIndex].description)
+			XCTAssertEqual(item.imageURLString, view.items[nextIndex].imageURLString)
 		}
 	}
 	

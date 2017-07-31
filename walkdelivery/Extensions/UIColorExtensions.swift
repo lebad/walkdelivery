@@ -27,4 +27,7 @@ extension UIColor {
 	static func descriptionTextColor() -> UIColor {
 		return UIColor(red: 137.0 / 255.0, green: 137.0 / 255.0, blue: 137.0 / 255.0, alpha: 1.0)
 	}
+	static func displayedItemSeparatorColor() -> UIColor {
+		return UIColor(red: 200.0 / 255.0, green: 199.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
+	}
 }

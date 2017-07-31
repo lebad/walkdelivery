@@ -25,6 +25,8 @@
 		55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */; };
 		55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEC1ED933CD0091B98E /* ErrorEntity.swift */; };
 		556E51D81F2F9651000FEB90 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51D71F2F9651000FEB90 /* UIColorExtensions.swift */; };
+		556E51DA1F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51D91F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift */; };
+		556E51DC1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51DB1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift */; };
 		55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */; };
 		55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */; };
 		55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */; };
@@ -91,6 +93,8 @@
 		55696FF01ED93BE00091B98E /* walkdelivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkdelivery.entitlements; sourceTree = "<group>"; };
 		55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreServiceTests.swift; sourceTree = "<group>"; };
 		556E51D71F2F9651000FEB90 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		556E51D91F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemSeparatorViewModel.swift; sourceTree = "<group>"; };
+		556E51DB1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemSeparatorCell.swift; sourceTree = "<group>"; };
 		55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenterTests.swift; sourceTree = "<group>"; };
 		55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLoginViewModel.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				550112B01EF2B1AE00ACFBF8 /* DisplayedItemViewModel.swift */,
+				556E51D91F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				55C65E1A1EEEE843008A23DB /* DisplayedItemCell.swift */,
+				556E51DB1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -591,6 +597,7 @@
 				55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */,
 				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				55F77E4D1ECDD0470094EF0F /* ItemsStoreService.swift in Sources */,
+				556E51DC1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift in Sources */,
 				55D831701EE285FA00989738 /* AuthViewInterface.swift in Sources */,
 				55441CA11EEBFE9C00980551 /* DisplayedItemsViewController.swift in Sources */,
 				55F77E4F1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift in Sources */,
@@ -603,6 +610,7 @@
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
 				55441C9F1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift in Sources */,
+				556E51DA1F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift in Sources */,
 				55D831691EE1E96F00989738 /* ItemEntity.swift in Sources */,
 				55696FE91ED918B60091B98E /* AuthService.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
