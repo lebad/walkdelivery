@@ -24,6 +24,7 @@
 		55696FE91ED918B60091B98E /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FE81ED918B60091B98E /* AuthService.swift */; };
 		55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */; };
 		55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55696FEC1ED933CD0091B98E /* ErrorEntity.swift */; };
+		556E51D81F2F9651000FEB90 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51D71F2F9651000FEB90 /* UIColorExtensions.swift */; };
 		55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */; };
 		55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */; };
 		55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */; };
@@ -89,6 +90,7 @@
 		55696FEC1ED933CD0091B98E /* ErrorEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEntity.swift; sourceTree = "<group>"; };
 		55696FF01ED93BE00091B98E /* walkdelivery.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walkdelivery.entitlements; sourceTree = "<group>"; };
 		55696FF31EDB4BFA0091B98E /* ItemStoreServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStoreServiceTests.swift; sourceTree = "<group>"; };
+		556E51D71F2F9651000FEB90 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenterTests.swift; sourceTree = "<group>"; };
 		55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLoginViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				55A650F01EE8005300961C40 /* StringExtensions.swift */,
+				556E51D71F2F9651000FEB90 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
 				55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */,
+				556E51D81F2F9651000FEB90 /* UIColorExtensions.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
 				55441C9F1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift in Sources */,

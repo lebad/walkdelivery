@@ -35,6 +35,7 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 	
 	func setupViews() {
 		self.view.backgroundColor = UIColor.white
+		self.navigationController?.navigationBar.barTintColor = UIColor.navBarColor()
 		setupTableView()
 		setupActivityIndicator()
 	}

@@ -37,7 +37,6 @@ class InitialFlowItemsRouter: InitialFlowItemsRouterInput {
 		guard let currentVC = controllerToShow else { return }
 		
 		let navVC = UINavigationController(rootViewController: currentVC)
-		navVC.isNavigationBarHidden = true
 		navVC.isToolbarHidden = true
 		window?.rootViewController = navVC
 		window?.makeKeyAndVisible()
