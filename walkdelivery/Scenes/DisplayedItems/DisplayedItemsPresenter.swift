@@ -14,7 +14,7 @@ class DisplayedItemsPresenter {
 	var interactor: DisplayedItemsInteractorInput?
 	weak var progressTaskObject: TaskProgressShowable?
 	
-	var viewModelItems = [DisplayedItemViewModel]()
+	var viewModelItems = [ViewModelCellRepresentable]()
 }
 
 extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
@@ -26,10 +26,15 @@ extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 			return
 		}
 		
+		let separator = DisplayedItemSeparatorViewModel()
 		for itemEntity in items {
+			self.viewModelItems.append(separator)
+
 			let itemViewModel = DisplayedItemViewModel(itemEntity: itemEntity)
 			self.viewModelItems.append(itemViewModel)
 		}
+		self.viewModelItems.append(separator)
+		
 		progressTaskObject?.showFinish()
 		view?.show(items: self.viewModelItems)
 	}

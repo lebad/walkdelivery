@@ -10,7 +10,7 @@ import Foundation
 
 protocol DisplayedItemsViewInput: class {
 	func setupViews()
-	func show(items: [DisplayedItemViewModel])
+	func show(items: [ViewModelCellRepresentable])
 	func show(errorString: String)
 }
 

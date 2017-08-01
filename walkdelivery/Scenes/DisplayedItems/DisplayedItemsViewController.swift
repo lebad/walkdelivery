@@ -42,7 +42,7 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 		setupActivityIndicator()
 	}
 	
-	func show(items: [DisplayedItemViewModel]) {
+	func show(items: [ViewModelCellRepresentable]) {
 		tableView.reloadData()
 	}
 	

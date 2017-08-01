@@ -60,7 +60,7 @@ extension DisplayedItemSeparatorCell: CellViewModelConfigurable {
 	}
 }
 
-extension DisplayedItemSeparatorCell: ViewModelCellRepresentable {
+extension DisplayedItemSeparatorViewModel: ViewModelCellRepresentable {
 	
 	func cellType() -> UITableViewCell.Type {
 		return DisplayedItemSeparatorCell.self
