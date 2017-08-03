@@ -11,7 +11,7 @@ target 'walkdelivery' do
   pod 'Firebase/Database', '~> 3.15.0'
   pod 'Firebase/Auth', '~> 3.15.0'
   pod 'SnapKit', '~> 3.0'
-  pod 'Kingfisher', '~> 1.1'
+  pod 'Kingfisher', '~> 3.0'
 
   target 'walkdeliveryTests' do
         inherit! :search_paths

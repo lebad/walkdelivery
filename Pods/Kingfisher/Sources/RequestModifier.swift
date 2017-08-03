@@ -1,10 +1,10 @@
 //
-//  Kingfisher.h
+//  RequestModifier.swift
 //  Kingfisher
 //
-//  Created by Wei Wang on 15/4/6.
+//  Created by Wei Wang on 2016/09/05.
 //
-//  Copyright (c) 2015 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,14 +24,30 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+import Foundation
 
-//! Project version number for Kingfisher.
-FOUNDATION_EXPORT double KingfisherVersionNumber;
+/// Request modifier of image downloader.
+public protocol ImageDownloadRequestModifier {
+    func modified(for request: URLRequest) -> URLRequest?
+}
 
-//! Project version string for Kingfisher.
-FOUNDATION_EXPORT const unsigned char KingfisherVersionString[];
+struct NoModifier: ImageDownloadRequestModifier {
+    static let `default` = NoModifier()
+    private init() {}
+    func modified(for request: URLRequest) -> URLRequest? {
+        return request
+    }
+}
 
-// In this header, you should import all the public headers of your framework using statements like #import <Kingfisher/PublicHeader.h>
-
-
+public struct AnyModifier: ImageDownloadRequestModifier {
+    
+    let block: (URLRequest) -> URLRequest?
+    
+    public func modified(for request: URLRequest) -> URLRequest? {
+        return block(request)
+    }
+    
+    public init(modify: @escaping (URLRequest) -> URLRequest? ) {
+        block = modify
+    }
+}

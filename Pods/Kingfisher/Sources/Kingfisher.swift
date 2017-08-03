@@ -1,10 +1,10 @@
 //
-//  ThreadHelper.swift
+//  Kingfisher.swift
 //  Kingfisher
 //
-//  Created by Wei Wang on 15/10/9.
+//  Created by Wei Wang on 16/9/14.
 //
-//  Copyright (c) 2015 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,13 +25,47 @@
 //  THE SOFTWARE.
 
 import Foundation
+import ImageIO
 
-func dispatch_async_safely_main_queue(block: ()->()) {
-    if NSThread.isMainThread() {
-        block()
-    } else {
-        dispatch_async(dispatch_get_main_queue()) {
-            block()
-        }
+#if os(macOS)
+    import AppKit
+    public typealias Image = NSImage
+    public typealias Color = NSColor
+    public typealias ImageView = NSImageView
+    typealias Button = NSButton
+#else
+    import UIKit
+    public typealias Image = UIImage
+    public typealias Color = UIColor
+    #if !os(watchOS)
+    public typealias ImageView = UIImageView
+    typealias Button = UIButton
+    #endif
+#endif
+
+public final class Kingfisher<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
     }
 }
+
+/**
+ A type that has Kingfisher extensions.
+ */
+public protocol KingfisherCompatible {
+    associatedtype CompatibleType
+    var kf: CompatibleType { get }
+}
+
+public extension KingfisherCompatible {
+    public var kf: Kingfisher<Self> {
+        get { return Kingfisher(self) }
+    }
+}
+
+extension Image: KingfisherCompatible { }
+#if !os(watchOS)
+extension ImageView: KingfisherCompatible { }
+extension Button: KingfisherCompatible { }
+#endif

@@ -1,10 +1,10 @@
 //
-//  Resource.swift
+//  Kingfisher.h
 //  Kingfisher
 //
 //  Created by Wei Wang on 15/4/6.
 //
-//  Copyright (c) 2015 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,14 +24,14 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
+#import <Foundation/Foundation.h>
 
-public struct Resource {
-    public let cacheKey: String
-    public let downloadURL: NSURL
-    
-    public init(downloadURL: NSURL, cacheKey: String? = nil) {
-        self.downloadURL = downloadURL
-        self.cacheKey = cacheKey ?? downloadURL.absoluteString
-    }
-}
+//! Project version number for Kingfisher.
+FOUNDATION_EXPORT double KingfisherVersionNumber;
+
+//! Project version string for Kingfisher.
+FOUNDATION_EXPORT const unsigned char KingfisherVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <Kingfisher/PublicHeader.h>
+
+
