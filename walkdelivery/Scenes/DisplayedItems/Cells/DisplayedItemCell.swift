@@ -117,6 +117,9 @@ extension DisplayedItemCell: CellViewModelConfigurable {
 		}
 		nameLabel.text = currentViewModel.name
 		descriptionTextView.text = currentViewModel.description
+		
+		let url = URL(string: currentViewModel.imageURLString)
+		mainImageView.kf.setImage(with: url)
 	}
 }
 
