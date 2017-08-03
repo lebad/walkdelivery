@@ -18,6 +18,13 @@ class DisplayedItemCell: UITableViewCell {
 		return imageView
 	}()
 	
+	var mainImageActivityIndicator: UIActivityIndicatorView = {
+		let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+		activityIndicator.frame = CGRect.zero
+		activityIndicator.startAnimating()
+		return activityIndicator
+	}()
+	
 	var nameLabel: UILabel = {
 		let label = UILabel(frame: CGRect.zero)
 		label.textColor = UIColor.mainTextColor()
@@ -65,6 +72,7 @@ class DisplayedItemCell: UITableViewCell {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.backgroundColor = UIColor.displayedItemCellBackgroundColor()
 		contentView.addSubview(mainImageView)
+		mainImageView.addSubview(mainImageActivityIndicator)
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(descriptionTextView)
 		self.setNeedsUpdateConstraints()
@@ -73,6 +81,7 @@ class DisplayedItemCell: UITableViewCell {
 	override func updateConstraints() {
 		if didSetupConstraints == false {
 			setupMainImageViewConstraints()
+			setupMainImageActivityIndicatorConstraints()
 			setupNameLabelConstraints()
 			setupDescriptionTextViewConstraint()
 		}
@@ -87,6 +96,12 @@ class DisplayedItemCell: UITableViewCell {
 			make.width.equalTo(width)
 			make.height.equalTo(width)
 			make.bottom.equalToSuperview().offset(-MainImageViewBottom)
+		}
+	}
+	
+	private func setupMainImageActivityIndicatorConstraints() {
+		mainImageActivityIndicator.snp.makeConstraints { make in
+			make.center.equalToSuperview()
 		}
 	}
 	
@@ -119,7 +134,10 @@ extension DisplayedItemCell: CellViewModelConfigurable {
 		descriptionTextView.text = currentViewModel.description
 		
 		let url = URL(string: currentViewModel.imageURLString)
-		mainImageView.kf.setImage(with: url)
+		
+		mainImageView.kf.setImage(with: url) { [unowned self] casheType in
+			self.mainImageActivityIndicator.stopAnimating()
+		}
 	}
 }
 
