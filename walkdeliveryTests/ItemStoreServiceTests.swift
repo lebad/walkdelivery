@@ -26,9 +26,9 @@ class ItemStoreServiceTests: XCTestCase {
 	
 	func testUpdateItems() {
 		let items = [
-			ItemEntity(uid: "", name: "Cheese", description: "The best cheese", imageURLString: "imageURL1"),
-			ItemEntity(uid: "", name: "Onion", description: "The best onion", imageURLString: "imageURL2"),
-			ItemEntity(uid: "", name: "Orange juice", description: "The best juice", imageURLString: "imageURL3")
+			ItemEntity(uid: "", name: "Cheese", description: "The best cheese", imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/Emmentaler-w.jpg?alt=media&token=79279b1c-1cd3-4790-967c-c63fde6d1998"),
+			ItemEntity(uid: "", name: "Onion", description: "The best onion", imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/fresh-yellow-onion.jpg?alt=media&token=3ca1350c-4261-4644-8c24-f9cd9ab927b3"),
+			ItemEntity(uid: "", name: "Orange juice", description: "The best juice", imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/juice.jpg?alt=media&token=c2254eba-f900-4d9d-8e0e-d2e87a6b9e44")
 		]
 		
 		var sendingSucceed = false
@@ -42,7 +42,7 @@ class ItemStoreServiceTests: XCTestCase {
 			}
 			expectation.fulfill()
 		}
-		wait(for: [expectation], timeout: 10.0)
+		waitForExpectations(timeout: 10.0)
 		
 		XCTAssertTrue(sendingSucceed, "Error after sending")
 		
@@ -63,7 +63,7 @@ class ItemStoreServiceTests: XCTestCase {
 			
 			expectation.fulfill()
 		}
-		wait(for: [expectation], timeout: 10.0)
+		waitForExpectations(timeout: 10.0)
 		
 		XCTAssertTrue(items.count > 0, "Items are not got")
 	}

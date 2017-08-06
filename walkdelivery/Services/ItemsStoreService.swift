@@ -37,19 +37,26 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 	
 	func update(items:[ItemEntity], completionHandler: @escaping (ItemsResult<Void>) -> Void) {
 		
-		var postItems = [[String: Any]]()
+		var storedError: Error?
+		
+		let dispatchGroup = DispatchGroup()
 		for item in items {
-			postItems.append(item.convertToDict())
+			let itemDict = item.convertToDict()
+			
+			dispatchGroup.enter()
+			fireBaseReference.child("items").childByAutoId().setValue(itemDict) { error, fireBaseReference in
+				
+				if error != nil {
+					storedError = error
+				}
+				dispatchGroup.leave()
+			}
 		}
-		
-		let childUpdates = ["items": postItems]
-		
-		fireBaseReference.updateChildValues(childUpdates) { error, reference in
-			guard error == nil else {
+		dispatchGroup.notify(queue: DispatchQueue.main) {
+			guard storedError == nil else {
 				completionHandler(.Failure(.InnerError))
 				return
 			}
-			
 			completionHandler(.Success())
 		}
 	}
