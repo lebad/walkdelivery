@@ -13,16 +13,17 @@ struct ItemEntity {
 	var name: String
 	var description: String
 	var imageURLString: String
+	var price: MoneyEntity?
 }
 
-extension ItemEntity {
+extension ItemEntity: DictionaryConvertable {
 	
 	init(dict: [String: Any]) {
 		let uid = dict["uid"] as? String ?? ""
 		let name = dict["name"] as? String ?? ""
 		let description = dict["description"] as? String ?? ""
 		let imageURLString = dict["image_url_string"] as? String ?? ""
-		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString)
+		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString, price: nil)
 	}
 	
 	func convertToDict() -> [String: Any] {

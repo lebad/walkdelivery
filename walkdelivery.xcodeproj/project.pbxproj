@@ -28,6 +28,9 @@
 		556E51DA1F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51D91F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift */; };
 		556E51DC1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556E51DB1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift */; };
 		556F77641F377978002729E1 /* DisplayedItemsHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F77631F377978002729E1 /* DisplayedItemsHeaderViewModel.swift */; };
+		556F77671F378F72002729E1 /* MoneyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F77661F378F72002729E1 /* MoneyEntity.swift */; };
+		556F77691F378F9D002729E1 /* CurrencyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F77681F378F9D002729E1 /* CurrencyEntity.swift */; };
+		556F776B1F379656002729E1 /* DictionaryConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F776A1F379656002729E1 /* DictionaryConvertable.swift */; };
 		55A650E81EE7E33E00961C40 /* AuthScenePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */; };
 		55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */; };
 		55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */; };
@@ -97,6 +100,9 @@
 		556E51D91F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemSeparatorViewModel.swift; sourceTree = "<group>"; };
 		556E51DB1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemSeparatorCell.swift; sourceTree = "<group>"; };
 		556F77631F377978002729E1 /* DisplayedItemsHeaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsHeaderViewModel.swift; sourceTree = "<group>"; };
+		556F77661F378F72002729E1 /* MoneyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyEntity.swift; sourceTree = "<group>"; };
+		556F77681F378F9D002729E1 /* CurrencyEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyEntity.swift; sourceTree = "<group>"; };
+		556F776A1F379656002729E1 /* DictionaryConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertable.swift; sourceTree = "<group>"; };
 		55A650E71EE7E33E00961C40 /* AuthScenePresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScenePresenterTests.swift; sourceTree = "<group>"; };
 		55A650EA1EE7E6F200961C40 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		55A650EC1EE7EFB700961C40 /* EnterLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLoginViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 			children = (
 				553116DD1EEFD37200D697B7 /* TaskProgressShowable.swift */,
 				55F568CD1EF6831100CAB392 /* ViewModelCell.swift */,
+				556F776A1F379656002729E1 /* DictionaryConvertable.swift */,
 			);
 			path = "Global Protocols";
 			sourceTree = "<group>";
@@ -346,6 +353,8 @@
 			children = (
 				55696FEC1ED933CD0091B98E /* ErrorEntity.swift */,
 				55D831681EE1E96F00989738 /* ItemEntity.swift */,
+				556F77661F378F72002729E1 /* MoneyEntity.swift */,
+				556F77681F378F9D002729E1 /* CurrencyEntity.swift */,
 				55F77E4E1ECDD1000094EF0F /* ItemsStoreServiceProtocol.swift */,
 				55F77E4C1ECDD0470094EF0F /* ItemsStoreService.swift */,
 				55696FEA1ED918F00091B98E /* AuthServiceProtocol.swift */,
@@ -592,9 +601,11 @@
 				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,
 				55696FEB1ED918F00091B98E /* AuthServiceProtocol.swift in Sources */,
 				550112B11EF2B1AE00ACFBF8 /* DisplayedItemViewModel.swift in Sources */,
+				556F77671F378F72002729E1 /* MoneyEntity.swift in Sources */,
 				55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */,
 				55F568CE1EF6831100CAB392 /* ViewModelCell.swift in Sources */,
 				55D831831EE2A73700989738 /* InitialFlowItemsInteractorInterface.swift in Sources */,
+				556F776B1F379656002729E1 /* DictionaryConvertable.swift in Sources */,
 				556F77641F377978002729E1 /* DisplayedItemsHeaderViewModel.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
 				55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */,
@@ -623,6 +634,7 @@
 				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
 				55441CA51EEC010200980551 /* DisplayedItemsScreenAssembly.swift in Sources */,
 				55696FED1ED933CD0091B98E /* ErrorEntity.swift in Sources */,
+				556F77691F378F9D002729E1 /* CurrencyEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
