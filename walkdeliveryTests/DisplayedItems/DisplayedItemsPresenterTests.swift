@@ -16,6 +16,7 @@ class DisplayedItemsViewMock: DisplayedItemsViewInput {
 	var items = [ViewModelCellRepresentable]()
 	var showErrorStringCalled = false
 	var errorString = String()
+	var header: DisplayedItemsHeaderViewModel?
 	
 	func setupViews() {
 		setupViewsCalled = true
@@ -24,6 +25,10 @@ class DisplayedItemsViewMock: DisplayedItemsViewInput {
 	func show(items: [ViewModelCellRepresentable]) {
 		showItemsCalled = true
 		self.items = items
+	}
+	
+	func show(header: DisplayedItemsHeaderViewModel) {
+		self.header = header
 	}
 	
 	func show(errorString: String) {
@@ -171,11 +176,11 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		XCTAssertEqual(view.errorString, errorEntity.description)
 	}
 	
-//	func testViewModelAtIndex() {
-//		presenter.present(items: testItems)
-//		
-//		for (index, item) in view.items.enumerated() {
-//			XCTAssertEqual(item, presenter.viewModel(index) as! DisplayedItemViewModel)
-//		}
-//	}
+	func testShowHeaderAfterViewPrepared() {
+		let validHeader = DisplayedItemsHeaderViewModel(title: "Walk Delivery")
+		
+		presenter.viewPrepared()
+		
+		XCTAssertEqual(view.header, validHeader)
+	}
 }

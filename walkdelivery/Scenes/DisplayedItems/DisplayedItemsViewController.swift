@@ -46,6 +46,10 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 		tableView.reloadData()
 	}
 	
+	func show(header: DisplayedItemsHeaderViewModel) {
+		self.navigationController?.navigationBar.topItem?.title = header.title
+	}
+	
 	func show(errorString: String) {
 		let alert = UIAlertController(title: nil,
 		                              message: errorString,

@@ -50,6 +50,7 @@ extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	func viewPrepared() {
 		interactor?.requestItems()
 		view?.setupViews()
+		view?.show(header: DisplayedItemsHeaderViewModel(title: "Walk Delivery"))
 		progressTaskObject?.showStart()
 	}
 	

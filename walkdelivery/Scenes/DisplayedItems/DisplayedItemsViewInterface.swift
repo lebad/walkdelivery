@@ -11,6 +11,7 @@ import Foundation
 protocol DisplayedItemsViewInput: class {
 	func setupViews()
 	func show(items: [ViewModelCellRepresentable])
+	func show(header: DisplayedItemsHeaderViewModel)
 	func show(errorString: String)
 }
 
