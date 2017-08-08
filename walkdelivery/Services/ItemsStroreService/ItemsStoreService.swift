@@ -12,7 +12,12 @@ import FirebaseDatabase
 
 class ItemsStoreService: ItemsStoreServiceProtocol {
 	
-	var fireBaseReference = FIRDatabase.database().reference()
+	private var moneyService: MoneyServiceProtocol
+	private var fireBaseReference = FIRDatabase.database().reference()
+	
+	init(moneyService: MoneyServiceProtocol) {
+		self.moneyService = moneyService
+	}
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		
@@ -23,15 +28,45 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 				return
 			}
 			
+			var storedCurrencyError: CurrencyError?
+			
+			let dispatchGroup = DispatchGroup()
+			
 			var itemsToReturn = [ItemEntity]()
 			for snap in snaps {
+				
+				
 				if var snapshotValue = snap.value as? [String: Any] {
-					snapshotValue["uid"] = snap.key
-					let itemEntity = ItemEntity(dict: snapshotValue)
-					itemsToReturn.append(itemEntity)
+					if let price = snapshotValue["price"] as? [String: String], let codeString = price["currencyCode"] {
+						
+						dispatchGroup.enter()
+						
+						self.moneyService.getCurrency(codeString) { result in
+							
+							snapshotValue["uid"] = snap.key
+							var itemEntity = ItemEntity(dict: snapshotValue)
+							var moneyEnity = MoneyEntity(dict: price)
+							
+							switch result {
+							case .Success(let currency):
+								moneyEnity.currency = currency
+								itemEntity.price = moneyEnity
+								itemsToReturn.append(itemEntity)
+							case .Failure(let error):
+								storedCurrencyError = error
+							}
+							dispatchGroup.leave()
+						}
+					}
 				}
 			}
-			completionHandler(.Success(itemsToReturn))
+			dispatchGroup.notify(queue: DispatchQueue.main) {
+				guard storedCurrencyError == nil else {
+					completionHandler(.Failure(.InnerError))
+					return
+				}
+				completionHandler(.Success(itemsToReturn))
+			}
 		})
 	}
 	

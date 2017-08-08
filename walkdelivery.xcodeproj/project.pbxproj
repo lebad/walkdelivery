@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		535FF6B9752B1E2951D60257 /* Pods_walkdeliveryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 408D5013D49AE16D22A24FC5 /* Pods_walkdeliveryTests.framework */; };
 		550112B11EF2B1AE00ACFBF8 /* DisplayedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550112B01EF2B1AE00ACFBF8 /* DisplayedItemViewModel.swift */; };
+		550584881F39AE4C0084D149 /* ItemsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E421F38A6E400DF7A31 /* ItemsStoreService.swift */; };
 		553116DE1EEFD37200D697B7 /* TaskProgressShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553116DD1EEFD37200D697B7 /* TaskProgressShowable.swift */; };
 		553116E21EEFDA4700D697B7 /* DisplayedItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553116E11EEFDA4700D697B7 /* DisplayedItemsInteractorTests.swift */; };
 		55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441C9C1EEBFD2900980551 /* DisplayedItemsInteractor.swift */; };
@@ -28,7 +29,6 @@
 		556F77641F377978002729E1 /* DisplayedItemsHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F77631F377978002729E1 /* DisplayedItemsHeaderViewModel.swift */; };
 		556F776B1F379656002729E1 /* DictionaryConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556F776A1F379656002729E1 /* DictionaryConvertable.swift */; };
 		55899E441F38A6E400DF7A31 /* ItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E411F38A6E400DF7A31 /* ItemEntity.swift */; };
-		55899E451F38A6E400DF7A31 /* ItemsStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E421F38A6E400DF7A31 /* ItemsStoreService.swift */; };
 		55899E461F38A6E400DF7A31 /* ItemsStoreServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E431F38A6E400DF7A31 /* ItemsStoreServiceProtocol.swift */; };
 		55899E4A1F38A77500DF7A31 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E481F38A77500DF7A31 /* AuthService.swift */; };
 		55899E4B1F38A77500DF7A31 /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55899E491F38A77500DF7A31 /* AuthServiceProtocol.swift */; };
@@ -625,7 +625,6 @@
 				55441CA71EEC06AF00980551 /* AuthSceneRouter.swift in Sources */,
 				55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */,
 				55899E461F38A6E400DF7A31 /* ItemsStoreServiceProtocol.swift in Sources */,
-				55899E451F38A6E400DF7A31 /* ItemsStoreService.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
 				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
@@ -661,6 +660,7 @@
 				556E51DA1F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
 				55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */,
+				550584881F39AE4C0084D149 /* ItemsStoreService.swift in Sources */,
 				55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */,
 				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
 				55899E441F38A6E400DF7A31 /* ItemEntity.swift in Sources */,

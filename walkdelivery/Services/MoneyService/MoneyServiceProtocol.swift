@@ -18,5 +18,5 @@ enum CurrencyError: Error {
 }
 
 protocol MoneyServiceProtocol: class {
-	func getCurrency(code: String, completionHandler: @escaping (CurrencyResult<CurrencyEntity>) -> Void)
+	func getCurrency(_ code: String, completionHandler: @escaping (CurrencyResult<CurrencyEntity>) -> Void)
 }

@@ -63,10 +63,25 @@ class DisplayedItemsInteractorTests: XCTestCase {
 	
 	func testRequestItemsToCallPresentItems() {
 		let items = [
-					 ItemEntity(uid: "uid1", name: "item1", description: "descr1", imageURLString: "imageurl1"),
-					 ItemEntity(uid: "uid2", name: "item2", description: "descr2", imageURLString: "imageurl2"),
-					 ItemEntity(uid: "uid3", name: "item3", description: "descr3", imageURLString: "imageurl3")
-					 ]
+			ItemEntity(uid: "",
+			           name: "Cheese",
+			           description: "The best cheese",
+			           imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/Emmentaler-w.jpg?alt=media&token=79279b1c-1cd3-4790-967c-c63fde6d1998",
+			           price: MoneyEntity(amount: NSDecimalNumber(string: "12.00"),
+			                              currency: CurrencyEntity(code: "USD", name: "Dollar", sign: "$"))),
+			ItemEntity(uid: "",
+			           name: "Onion",
+			           description: "The best onion",
+			           imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/fresh-yellow-onion.jpg?alt=media&token=3ca1350c-4261-4644-8c24-f9cd9ab927b3",
+			           price: MoneyEntity(amount: NSDecimalNumber(string: "1.20"),
+			                              currency: CurrencyEntity(code: "USD", name: "Dollar", sign: "$"))),
+			ItemEntity(uid: "",
+			           name: "Orange juice",
+			           description: "The best juice",
+			           imageURLString: "https://firebasestorage.googleapis.com/v0/b/walkdelivery.appspot.com/o/juice.jpg?alt=media&token=c2254eba-f900-4d9d-8e0e-d2e87a6b9e44",
+			           price: MoneyEntity(amount: NSDecimalNumber(string: "0.40"),
+			                              currency: CurrencyEntity(code: "USD", name: "Dollar", sign: "$")))
+		]
 		storeService.items = items
 		
 		interactor.requestItems()

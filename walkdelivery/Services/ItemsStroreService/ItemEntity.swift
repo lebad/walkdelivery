@@ -13,7 +13,7 @@ struct ItemEntity {
 	var name: String
 	var description: String
 	var imageURLString: String
-	var price: MoneyEntity?
+	var price: MoneyEntity
 }
 
 extension ItemEntity: DictionaryConvertable {
@@ -23,13 +23,20 @@ extension ItemEntity: DictionaryConvertable {
 		let name = dict["name"] as? String ?? ""
 		let description = dict["description"] as? String ?? ""
 		let imageURLString = dict["image_url_string"] as? String ?? ""
-		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString, price: nil)
+		let priceDict = dict["price"] as? [String: String] ?? [:]
+		let price = MoneyEntity(dict: priceDict)
+		self.init(uid: uid, name: name, description: description, imageURLString: imageURLString, price: price)
 	}
 	
 	func convertToDict() -> [String: Any] {
+		let priceDict = ["amount": price.amount.stringValue,
+						 "currencyCode": price.currency.code
+						]
 		let dict = ["name": name,
 		            "description": description,
-		            "image_url_string": imageURLString]
+		            "image_url_string": imageURLString,
+					"price": priceDict
+				    ] as [String: Any]
 		return dict
 	}
 }
