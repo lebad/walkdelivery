@@ -21,6 +21,7 @@
 		55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */; };
 		554C1FBA1F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FB91F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift */; };
 		554C1FBC1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift */; };
+		554C1FBE1F3B40A900C00FE3 /* RootViewControllerAccecable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */; };
 		555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */; };
 		555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */; };
 		555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */; };
@@ -92,6 +93,7 @@
 		55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneRouterInterface.swift; sourceTree = "<group>"; };
 		554C1FB91F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsScreenRouter.swift; sourceTree = "<group>"; };
 		554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemScreenInterface.swift; sourceTree = "<group>"; };
+		554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewControllerAccecable.swift; sourceTree = "<group>"; };
 		555A1F681ECB1EBB00DA7A73 /* walkdelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walkdelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				553116DD1EEFD37200D697B7 /* TaskProgressShowable.swift */,
 				55F568CD1EF6831100CAB392 /* ViewModelCell.swift */,
 				556F776A1F379656002729E1 /* DictionaryConvertable.swift */,
+				554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */,
 			);
 			path = "Global Protocols";
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
 				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
+				554C1FBE1F3B40A900C00FE3 /* RootViewControllerAccecable.swift in Sources */,
 				55899E501F38A79E00DF7A31 /* MoneyEntity.swift in Sources */,
 				55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */,
 				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,

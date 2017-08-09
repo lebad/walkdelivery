@@ -8,18 +8,10 @@
 
 import UIKit
 
-class AuthSceneRouter: AuthSceneRouterInput {
-	
-	private var rootViewController: UINavigationController? {
-		get {
-			let appDelegate = UIApplication.shared.delegate as? AppDelegate
-			let window = appDelegate?.window
-			return window?.rootViewController as? UINavigationController
-		}
-	}
+class AuthSceneRouter: AuthSceneRouterInput, RootViewControllerAccecable {
 	
 	func routeToDisplayedItemsScene() {
-		gp
+		guard let currentNavigationController = rootViewController else { return }
 		
 		let displayedItemsVC = DisplayedItemsScreenAssembly.configureView()
 		currentNavigationController.pushViewController(displayedItemsVC, animated: true)

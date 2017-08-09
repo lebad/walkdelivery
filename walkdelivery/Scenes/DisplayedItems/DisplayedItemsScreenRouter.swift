@@ -8,15 +8,7 @@
 
 import UIKit
 
-class DisplayedItemsScreenRouter: DisplayedItemScreenRouterInput {
-	
-	private var rootViewController: UINavigationController? {
-		get {
-			let appDelegate = UIApplication.shared.delegate as? AppDelegate
-			let window = appDelegate?.window
-			return window?.rootViewController as? UINavigationController
-		}
-	}
+class DisplayedItemsScreenRouter: DisplayedItemScreenRouterInput, RootViewControllerAccecable {
 	
 	func routeToRequestingItem(_ item: ItemEntity) {
 		guard let currentNavigationController = rootViewController,
