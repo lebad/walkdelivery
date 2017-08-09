@@ -19,7 +19,7 @@ class AuthSceneRouter: AuthSceneRouterInput {
 	}
 	
 	func routeToDisplayedItemsScene() {
-		guard let currentNavigationController = rootViewController else { return }
+		gp
 		
 		let displayedItemsVC = DisplayedItemsScreenAssembly.configureView()
 		currentNavigationController.pushViewController(displayedItemsVC, animated: true)
