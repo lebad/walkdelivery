@@ -60,6 +60,7 @@ extension DisplayedItemsViewController: DisplayedItemsViewInput {
 	
 	func setupTableView() {
 		tableView.dataSource = self
+		tableView.delegate = self
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 5.0
@@ -94,6 +95,13 @@ extension DisplayedItemsViewController: UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: cellType), for: indexPath) as! CellViewModelConfigurable
 		cell.set(viewModel)
 		return cell as! UITableViewCell
+	}
+}
+
+extension DisplayedItemsViewController: UITableViewDelegate {
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		self.output?.didSelectRow(indexPath.row)
 	}
 }
 

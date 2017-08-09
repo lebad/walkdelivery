@@ -60,12 +60,22 @@ class ProgressTaskMock: TaskProgressShowable {
 	}
 }
 
+class DisplayedItemsScreenRouterMock: DisplayedItemScreenRouterInput {
+	
+	var routedItem: ItemEntity?
+	
+	func routeToRequestingItem(_ item: ItemEntity) {
+		routedItem = item
+	}
+}
+
 class DisplayedItemsPresenterTests: XCTestCase {
 	
 	var presenter: DisplayedItemsPresenter!
 	var view: DisplayedItemsViewMock!
 	var interactor: DisplayedItemsInteractorMock!
 	var progressTask: ProgressTaskMock!
+	var router: DisplayedItemsScreenRouterMock!
 	
 	let testItems = [
 		ItemEntity(uid: "",
@@ -95,14 +105,20 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		view = DisplayedItemsViewMock()
 		interactor = DisplayedItemsInteractorMock()
 		progressTask = ProgressTaskMock()
+		router = DisplayedItemsScreenRouterMock()
 		
 		presenter.view = view
 		presenter.interactor = interactor
 		presenter.progressTaskObject = progressTask
+		presenter.router = router
     }
     
     override func tearDown() {
         presenter = nil
+		view = nil
+		interactor = nil
+		progressTask = nil
+		router = nil
         super.tearDown()
     }
 	
@@ -197,5 +213,14 @@ class DisplayedItemsPresenterTests: XCTestCase {
 		presenter.viewPrepared()
 		
 		XCTAssertEqual(view.header, validHeader)
+	}
+	
+	func testRouteToRequestingItemAfterDidSelectRow() {
+		let testItem = testItems[1]
+		
+		presenter.present(items: testItems)
+		presenter.didSelectRow(1)
+		
+		XCTAssertEqual(testItem, router.routedItem)
 	}
 }

@@ -12,14 +12,18 @@ class DisplayedItemsPresenter {
 	
 	weak var view: DisplayedItemsViewInput?
 	var interactor: DisplayedItemsInteractorInput?
+	var router: DisplayedItemScreenRouterInput?
 	weak var progressTaskObject: TaskProgressShowable?
 	
+	var itemEntities = [ItemEntity]()
 	var viewModelItems = [ViewModelCellRepresentable]()
 }
 
 extension DisplayedItemsPresenter: DisplayedItemsInteractorOutput {
 	
 	func present(items: [ItemEntity]) {
+		
+		itemEntities = items
 		
 		guard items.count > 0 else {
 			view?.show(errorString: "Error occured")
@@ -60,5 +64,10 @@ extension DisplayedItemsPresenter: DisplayedItemsViewOutput {
 	
 	func viewModel(_ index: Int) -> ViewModelCellRepresentable {
 		return viewModelItems[index]
+	}
+	
+	func didSelectRow(_ index: Int) {
+		let item = itemEntities[index]
+		router?.routeToRequestingItem(item)
 	}
 }
