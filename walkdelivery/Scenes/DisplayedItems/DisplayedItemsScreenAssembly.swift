@@ -14,11 +14,13 @@ class DisplayedItemsScreenAssembly {
 		let viewController = DisplayedItemsViewController()
 		let interactor = DisplayedItemsInteractor()
 		interactor.itemsStoreService = ItemsStoreService(moneyService: MoneyService())
+		let router = DisplayedItemsScreenRouter()
 		
 		let presenter = DisplayedItemsPresenter()
 		presenter.view = viewController
 		presenter.interactor = interactor
 		presenter.progressTaskObject = viewController
+		presenter.router = router
 		
 		viewController.output = presenter
 		interactor.output = presenter

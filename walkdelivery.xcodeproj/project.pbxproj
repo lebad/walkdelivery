@@ -20,8 +20,16 @@
 		55441CA71EEC06AF00980551 /* AuthSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */; };
 		55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */; };
 		554C1FBA1F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FB91F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift */; };
-		554C1FBC1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift */; };
+		554C1FBC1F3B182D00C00FE3 /* DisplayedItemScreenRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenRouterInterface.swift */; };
 		554C1FBE1F3B40A900C00FE3 /* RootViewControllerAccecable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */; };
+		554C1FC11F3B432B00C00FE3 /* RequestingItemInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FC01F3B432B00C00FE3 /* RequestingItemInteractor.swift */; };
+		554C1FC31F3B435100C00FE3 /* RequestingItemInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FC21F3B435100C00FE3 /* RequestingItemInteractorInterface.swift */; };
+		554C1FC51F3B43F300C00FE3 /* RequestingItemPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FC41F3B43F300C00FE3 /* RequestingItemPresenter.swift */; };
+		554C1FC71F3B441900C00FE3 /* RequestingItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FC61F3B441900C00FE3 /* RequestingItemViewController.swift */; };
+		554C1FC91F3B446700C00FE3 /* RequestingItemViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FC81F3B446700C00FE3 /* RequestingItemViewInterface.swift */; };
+		554C1FCB1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FCA1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift */; };
+		554C1FCD1F3B47B000C00FE3 /* RequestingItemRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FCC1F3B47B000C00FE3 /* RequestingItemRouter.swift */; };
+		554C1FCF1F3B47C800C00FE3 /* RequestingItemAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554C1FCE1F3B47C800C00FE3 /* RequestingItemAssembly.swift */; };
 		555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */; };
 		555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */; };
 		555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info.plist */; };
@@ -92,8 +100,16 @@
 		55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneRouter.swift; sourceTree = "<group>"; };
 		55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSceneRouterInterface.swift; sourceTree = "<group>"; };
 		554C1FB91F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsScreenRouter.swift; sourceTree = "<group>"; };
-		554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemScreenInterface.swift; sourceTree = "<group>"; };
+		554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemScreenRouterInterface.swift; sourceTree = "<group>"; };
 		554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewControllerAccecable.swift; sourceTree = "<group>"; };
+		554C1FC01F3B432B00C00FE3 /* RequestingItemInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemInteractor.swift; sourceTree = "<group>"; };
+		554C1FC21F3B435100C00FE3 /* RequestingItemInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemInteractorInterface.swift; sourceTree = "<group>"; };
+		554C1FC41F3B43F300C00FE3 /* RequestingItemPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemPresenter.swift; sourceTree = "<group>"; };
+		554C1FC61F3B441900C00FE3 /* RequestingItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemViewController.swift; sourceTree = "<group>"; };
+		554C1FC81F3B446700C00FE3 /* RequestingItemViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemViewInterface.swift; sourceTree = "<group>"; };
+		554C1FCA1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemRouterInterface.swift; sourceTree = "<group>"; };
+		554C1FCC1F3B47B000C00FE3 /* RequestingItemRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemRouter.swift; sourceTree = "<group>"; };
+		554C1FCE1F3B47C800C00FE3 /* RequestingItemAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestingItemAssembly.swift; sourceTree = "<group>"; };
 		555A1F681ECB1EBB00DA7A73 /* walkdelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = walkdelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +195,21 @@
 				554C1FBD1F3B40A900C00FE3 /* RootViewControllerAccecable.swift */,
 			);
 			path = "Global Protocols";
+			sourceTree = "<group>";
+		};
+		554C1FBF1F3B429000C00FE3 /* RequestingItemScene */ = {
+			isa = PBXGroup;
+			children = (
+				554C1FC21F3B435100C00FE3 /* RequestingItemInteractorInterface.swift */,
+				554C1FC01F3B432B00C00FE3 /* RequestingItemInteractor.swift */,
+				554C1FC41F3B43F300C00FE3 /* RequestingItemPresenter.swift */,
+				554C1FC81F3B446700C00FE3 /* RequestingItemViewInterface.swift */,
+				554C1FC61F3B441900C00FE3 /* RequestingItemViewController.swift */,
+				554C1FCA1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift */,
+				554C1FCC1F3B47B000C00FE3 /* RequestingItemRouter.swift */,
+				554C1FCE1F3B47C800C00FE3 /* RequestingItemAssembly.swift */,
+			);
+			path = RequestingItemScene;
 			sourceTree = "<group>";
 		};
 		555A1F5F1ECB1EBB00DA7A73 = {
@@ -303,9 +334,9 @@
 				55D8316B1EE2843800989738 /* AuthScenePresenter.swift */,
 				55D8316F1EE285FA00989738 /* AuthViewInterface.swift */,
 				55D8316D1EE2851F00989738 /* AuthViewController.swift */,
-				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
 				55441CA81EEC070E00980551 /* AuthSceneRouterInterface.swift */,
 				55441CA61EEC06AF00980551 /* AuthSceneRouter.swift */,
+				55D831771EE28A0100989738 /* AuthSceneAssembly.swift */,
 				55A650E91EE7E6D800961C40 /* ViewModels */,
 				55DC922B1EE34A5100744BA5 /* Views */,
 			);
@@ -358,6 +389,7 @@
 				55D8317F1EE2A73700989738 /* InitialFlow */,
 				55D8316A1EE2840B00989738 /* AuthScene */,
 				55F77E381ECDC83F0094EF0F /* DisplayedItems */,
+				554C1FBF1F3B429000C00FE3 /* RequestingItemScene */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -370,9 +402,9 @@
 				55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */,
 				55441CA21EEBFEDB00980551 /* DisplayedItemsViewInterface.swift */,
 				55441CA01EEBFE9C00980551 /* DisplayedItemsViewController.swift */,
-				55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */,
-				554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift */,
+				554C1FBB1F3B182D00C00FE3 /* DisplayedItemScreenRouterInterface.swift */,
 				554C1FB91F3B17A200C00FE3 /* DisplayedItemsScreenRouter.swift */,
+				55441CA41EEC010200980551 /* DisplayedItemsScreenAssembly.swift */,
 				559BAB471EF13C8100957416 /* ViewModels */,
 				55C65E191EEEE7FF008A23DB /* Cells */,
 			);
@@ -634,15 +666,18 @@
 				55441CA71EEC06AF00980551 /* AuthSceneRouter.swift in Sources */,
 				55441CA31EEBFEDB00980551 /* DisplayedItemsViewInterface.swift in Sources */,
 				55899E461F38A6E400DF7A31 /* ItemsStoreServiceProtocol.swift in Sources */,
+				554C1FC51F3B43F300C00FE3 /* RequestingItemPresenter.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
 				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
 				554C1FBE1F3B40A900C00FE3 /* RootViewControllerAccecable.swift in Sources */,
+				554C1FCB1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift in Sources */,
 				55899E501F38A79E00DF7A31 /* MoneyEntity.swift in Sources */,
 				55D8317A1EE28C0500989738 /* AuthSceneIntercator.swift in Sources */,
 				55D831781EE28A0100989738 /* AuthSceneAssembly.swift in Sources */,
 				55899E521F38A7F200DF7A31 /* MoneyService.swift in Sources */,
 				550112B11EF2B1AE00ACFBF8 /* DisplayedItemViewModel.swift in Sources */,
+				554C1FCD1F3B47B000C00FE3 /* RequestingItemRouter.swift in Sources */,
 				55D8318C1EE2AB5E00989738 /* InitialFlowItemsAssembly.swift in Sources */,
 				55899E541F38A84E00DF7A31 /* MoneyServiceProtocol.swift in Sources */,
 				55F568CE1EF6831100CAB392 /* ViewModelCell.swift in Sources */,
@@ -651,6 +686,7 @@
 				556F77641F377978002729E1 /* DisplayedItemsHeaderViewModel.swift in Sources */,
 				55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */,
 				55441CA91EEC070E00980551 /* AuthSceneRouterInterface.swift in Sources */,
+				554C1FC11F3B432B00C00FE3 /* RequestingItemInteractor.swift in Sources */,
 				55441C9D1EEBFD2900980551 /* DisplayedItemsInteractor.swift in Sources */,
 				55D8316E1EE2851F00989738 /* AuthViewController.swift in Sources */,
 				556E51DC1F2FA3BC000FEB90 /* DisplayedItemSeparatorCell.swift in Sources */,
@@ -658,20 +694,24 @@
 				55441CA11EEBFE9C00980551 /* DisplayedItemsViewController.swift in Sources */,
 				553116DE1EEFD37200D697B7 /* TaskProgressShowable.swift in Sources */,
 				55C65E1B1EEEE843008A23DB /* DisplayedItemCell.swift in Sources */,
-				554C1FBC1F3B182D00C00FE3 /* DisplayedItemScreenInterface.swift in Sources */,
+				554C1FBC1F3B182D00C00FE3 /* DisplayedItemScreenRouterInterface.swift in Sources */,
 				555A1F6C1ECB1EBB00DA7A73 /* AppDelegate.swift in Sources */,
 				55D831881EE2A94300989738 /* InitialFlowItemsRouter.swift in Sources */,
 				55899E4A1F38A77500DF7A31 /* AuthService.swift in Sources */,
 				55A650ED1EE7EFB700961C40 /* EnterLoginViewModel.swift in Sources */,
 				556E51D81F2F9651000FEB90 /* UIColorExtensions.swift in Sources */,
+				554C1FCF1F3B47C800C00FE3 /* RequestingItemAssembly.swift in Sources */,
 				55D8316C1EE2843800989738 /* AuthScenePresenter.swift in Sources */,
 				55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */,
 				55441C9F1EEBFD9B00980551 /* DisplayedItemsInteractorInterface.swift in Sources */,
+				554C1FC71F3B441900C00FE3 /* RequestingItemViewController.swift in Sources */,
 				55899E4B1F38A77500DF7A31 /* AuthServiceProtocol.swift in Sources */,
 				556E51DA1F2FA35E000FEB90 /* DisplayedItemSeparatorViewModel.swift in Sources */,
 				55D8318A1EE2A96100989738 /* InitialFlowItemsRouterInterface.swift in Sources */,
 				55A650EF1EE7FA8E00961C40 /* ErrorViewModel.swift in Sources */,
 				550584881F39AE4C0084D149 /* ItemsStoreService.swift in Sources */,
+				554C1FC31F3B435100C00FE3 /* RequestingItemInteractorInterface.swift in Sources */,
+				554C1FC91F3B446700C00FE3 /* RequestingItemViewInterface.swift in Sources */,
 				55A650F11EE8005300961C40 /* StringExtensions.swift in Sources */,
 				55D831821EE2A73700989738 /* InitialFlowItemsInteractor.swift in Sources */,
 				55899E441F38A6E400DF7A31 /* ItemEntity.swift in Sources */,
