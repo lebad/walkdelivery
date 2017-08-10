@@ -15,18 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	
-	var fireBaseReference: FIRDatabaseReference!
+	var fireBaseReferenceUser: FIRDatabaseReference!
+	var fireBaseReferenceBusiness: FIRDatabaseReference!
 
 	var initialFlowInteractor: InitialFlowItemsInteractorInput?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
-		FIRApp.configure()
-		fireBaseReference = FIRDatabase.database().reference()
+		configureFireBaseReference("User")
+		configureFireBaseReference("Business")
 		
 		initialFlowInteractor = InitialFlowItemsAssembly.configureInteractor()
 		initialFlowInteractor?.startFlow()
 		return true
+	}
+	
+	func configureFireBaseReference(_ name: String) {
+		let filePath = Bundle.main.path(forResource: "GoogleService-Info-" + name, ofType: "plist")
+		guard let options = FIROptions(contentsOfFile: filePath)
+			else { assert(false, "Couldn't load config file") }
+		FIRApp.configure(withName: name, options: options)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
