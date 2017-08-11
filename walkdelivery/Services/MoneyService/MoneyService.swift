@@ -7,16 +7,14 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
 
 
-class MoneyService: MoneyServiceProtocol {
-	
-	private var fireBaseReference = FIRDatabase.database().reference(withPath: "currencies")
+class MoneyService: MoneyServiceProtocol, FireBaseReferenceAccecable {
 	
 	func getCurrency(_ code: String, completionHandler: @escaping (CurrencyResult<CurrencyEntity>) -> Void) {
 		
-		fireBaseReference.child(code).observeSingleEvent(of: .value, with: { snapshot in
+		fireBaseReferenceUser?.child("currencies").child(code).observeSingleEvent(of: .value, with: { snapshot in
 			
 			guard var valueDict = snapshot.value as? [String: Any] else {
 				completionHandler(.Failure(.InnerError))

@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import Firebase
 
 
-class ItemsStoreService: ItemsStoreServiceProtocol {
+class ItemsStoreService: ItemsStoreServiceProtocol, FireBaseReferenceAccecable {
 	
 	private var moneyService: MoneyServiceProtocol
-	private var fireBaseReference = FIRDatabase.database().reference()
 	
 	init(moneyService: MoneyServiceProtocol) {
 		self.moneyService = moneyService
@@ -21,7 +20,7 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		
-		fireBaseReference.child("items").observeSingleEvent(of: .value, with: { snapshot in
+		fireBaseReferenceUser?.child("items").observeSingleEvent(of: .value, with: { snapshot in
 			
 			guard snapshot.hasChildren() == true, let snaps = snapshot.children.allObjects as? [FIRDataSnapshot] else {
 				completionHandler(.Failure(.InnerError))
@@ -79,7 +78,7 @@ class ItemsStoreService: ItemsStoreServiceProtocol {
 			let itemDict = item.convertToDict()
 			
 			dispatchGroup.enter()
-			fireBaseReference.child("items").childByAutoId().setValue(itemDict) { error, fireBaseReference in
+			fireBaseReferenceUser?.child("items").childByAutoId().setValue(itemDict) { error, fireBaseReference in
 				
 				if error != nil {
 					storedError = error

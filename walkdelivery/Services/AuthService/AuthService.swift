@@ -7,13 +7,19 @@
 //
 
 import Foundation
-import FirebaseAuth
+import Firebase
 
 class AuthService: AuthServiceProtocol {
 	
 	static let sharedInstance = AuthService()
 	
-	private var firAuth = FIRAuth.auth()
+	private var firAuth: FIRAuth? = {
+		guard let app = FIRApp(named: "User")
+			else { assert(false, "Cuuld not retrieve User app") }
+		let auth = FIRAuth(app: app)
+		return auth
+	}()
+	
 	private var request: RequestUser?
 	private var requestCompletionHanler: ((AuthResult) -> Void)?
 	
