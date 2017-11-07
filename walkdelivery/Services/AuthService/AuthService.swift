@@ -9,14 +9,14 @@
 import Foundation
 import Firebase
 
-class AuthService: AuthServiceProtocol {
+class AuthService: AuthServiceProtocol, FireBaseReferenceAccecable {
 	
 	static let sharedInstance = AuthService()
 	
-	private var firAuth: FIRAuth? = {
-		guard let app = FIRApp(named: "User")
-			else { assert(false, "Cuuld not retrieve User app") }
-		let auth = FIRAuth(app: app)
+	private var firAuth: Auth? = {
+		guard let app = FirebaseApp.app(name: "User")
+			else { assert(false, "Could not retrieve User app") }
+		let auth = Auth.auth(app: app)
 		return auth
 	}()
 	

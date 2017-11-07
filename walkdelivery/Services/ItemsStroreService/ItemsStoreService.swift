@@ -8,11 +8,15 @@
 
 import Foundation
 import Firebase
+import CoreLocation
+import GeoFire
 
 
 class ItemsStoreService: ItemsStoreServiceProtocol, FireBaseReferenceAccecable {
 	
 	private var moneyService: MoneyServiceProtocol
+	
+	private var itemsSet = Set<ItemEntity>()
 	
 	init(moneyService: MoneyServiceProtocol) {
 		self.moneyService = moneyService
@@ -20,9 +24,32 @@ class ItemsStoreService: ItemsStoreServiceProtocol, FireBaseReferenceAccecable {
 	
 	func getItems(request: ItemsRequest, completionHandler: @escaping (ItemsResult<[ItemEntity]>) -> Void) {
 		
+		let consumersLocationRef = fireBaseReferenceBusiness?.child("consumersLocations")
+		let geofire = GeoFire(firebaseRef: consumersLocationRef)
+		
+		let location = CLLocation(latitude: request.customerLocationCoordinate.latitude,
+		                          longitude: request.customerLocationCoordinate.longitude)
+		let circleQuery = geofire?.query(at: location, withRadius: request.radius)
+		
+		let productsBySellersRef = fireBaseReferenceBusiness?.child("productsBySellers")
+		
+		circleQuery?.observe(.keyEntered, with: { (key: String?, location: CLLocation?) in
+			guard let keyString = key else {return}
+			
+			let productsRef = productsBySellersRef?.child(keyString)
+			productsRef?.observeSingleEvent(of: .value, with: { snapshot in
+				guard snapshot.hasChildren() == true, let snaps = snapshot.children.allObjects as? [DataSnapshot] else {
+					return
+				}
+				
+			})
+		})
+		
+		
+		
 		fireBaseReferenceUser?.child("items").observeSingleEvent(of: .value, with: { snapshot in
 			
-			guard snapshot.hasChildren() == true, let snaps = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+			guard snapshot.hasChildren() == true, let snaps = snapshot.children.allObjects as? [DataSnapshot] else {
 				completionHandler(.Failure(.InnerError))
 				return
 			}

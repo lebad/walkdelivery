@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct ItemsRequest {
-	
+	let customerLocationCoordinate: CLLocationCoordinate2D
+	let radius: Double
 }
 
 enum ItemsResult<U> {

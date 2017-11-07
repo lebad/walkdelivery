@@ -49,3 +49,9 @@ extension ItemEntity: Equatable {
 		lhs.imageURLString == rhs.imageURLString
 	}
 }
+
+extension ItemEntity: Hashable {
+	var hashValue: Int {
+		return uid.hashValue
+	}
+}

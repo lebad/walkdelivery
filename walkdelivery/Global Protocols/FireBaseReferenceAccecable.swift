@@ -10,27 +10,35 @@ import Foundation
 import Firebase
 
 protocol FireBaseReferenceAccecable {
-	var fireBaseReferenceUser: FIRDatabaseReference? { get }
-	var fireBaseReferenceBusiness: FIRDatabaseReference? { get }
+	var fireBaseReferenceUser: DatabaseReference? { get }
+	var fireBaseReferenceBusiness: DatabaseReference? { get }
 }
 
 extension FireBaseReferenceAccecable {
 	
-	var fireBaseReferenceUser: FIRDatabaseReference? {
+	var fireBaseReferenceUser: DatabaseReference? {
 		get {
-			guard let app = FIRApp(named: "User")
-				else { assert(false, "Cuuld not retrieve User app") }
-			let dataBase = FIRDatabase.database(app: app)
+			let filePath = Bundle.main.path(forResource: "GoogleService-Info-User", ofType: "plist")
+			guard let fileopts = FirebaseOptions.init(contentsOfFile: filePath!)
+				else { assert(false, "Could not retrieve GoogleService-Info-User") }
+			FirebaseApp.configure(name:"User", options:fileopts)
+			guard let app = FirebaseApp.app(name: "User")
+				else { assert(false, "Could not retrieve User app") }
+			let dataBase = Database.database(app: app)
 			let reference = dataBase.reference()
 			return reference
 		}
 	}
 	
-	var fireBaseReferenceBusiness: FIRDatabaseReference? {
+	var fireBaseReferenceBusiness: DatabaseReference? {
 		get {
-			guard let app = FIRApp(named: "Business")
-				else { assert(false, "Cuuld not retrieve User app") }
-			let dataBase = FIRDatabase.database(app: app)
+			let filePath = Bundle.main.path(forResource: "GoogleService-Info-Business", ofType: "plist")
+			guard let fileopts = FirebaseOptions.init(contentsOfFile: filePath!)
+				else { assert(false, "Could not retrieve GoogleService-Info-Business") }
+			FirebaseApp.configure(name:"Business", options:fileopts)
+			guard let app = FirebaseApp.app(name: "Business")
+				else { assert(false, "Could not retrieve Business app") }
+			let dataBase = Database.database(app: app)
 			let reference = dataBase.reference()
 			return reference
 		}
