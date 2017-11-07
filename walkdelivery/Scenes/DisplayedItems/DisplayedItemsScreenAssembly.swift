@@ -13,7 +13,9 @@ class DisplayedItemsScreenAssembly {
 	static func configureView() -> UIViewController {
 		let viewController = DisplayedItemsViewController()
 		let interactor = DisplayedItemsInteractor()
-		interactor.itemsStoreService = ItemsStoreService(moneyService: MoneyService())
+		interactor.itemsStoreService = ItemsStoreService()
+		interactor.locationManager = LocationManager.singleton
+		
 		let router = DisplayedItemsScreenRouter()
 		
 		let presenter = DisplayedItemsPresenter()

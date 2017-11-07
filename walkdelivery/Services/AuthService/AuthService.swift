@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class AuthService: AuthServiceProtocol, FireBaseReferenceAccecable {
+class AuthService: AuthServiceProtocol {
 	
 	static let sharedInstance = AuthService()
 	

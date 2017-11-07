@@ -11,6 +11,7 @@ target 'walkdelivery' do
   pod 'Firebase/Auth', '~> 4.0'
   pod 'SnapKit', '~> 3.0'
   pod 'Kingfisher', '~> 3.0'
+  pod 'SwiftyJSON'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
   pod 'GoogleMaps'
 

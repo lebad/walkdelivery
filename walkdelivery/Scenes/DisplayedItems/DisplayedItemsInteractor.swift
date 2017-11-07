@@ -7,17 +7,28 @@
 //
 
 import Foundation
+import CoreLocation
 
 class DisplayedItemsInteractor {
 	
 	weak var output: DisplayedItemsInteractorOutput?
 	var itemsStoreService: ItemsStoreServiceProtocol?
+	weak var locationManager: LocationManagerInput?
 }
 
 extension DisplayedItemsInteractor: DisplayedItemsInteractorInput {
 	
 	func requestItems() {
-		let request = ItemsRequest()
+		locationManager?.addObserver(observer: self)
+		locationManager?.startUpdatingLocation()
+	}
+}
+
+extension DisplayedItemsInteractor: LocationManagerObserver {
+	
+	func didUpdate(_ location: CLLocationCoordinate2D) {
+		print("location: \(location)")
+		let request = ItemsRequest(customerLocationCoordinate: location, radius: 1)
 		itemsStoreService?.getItems(request: request) { [weak self] result in
 			switch result {
 			case .Success(let remoteItems):
@@ -26,5 +37,9 @@ extension DisplayedItemsInteractor: DisplayedItemsInteractorInput {
 				self?.output?.present(error: ErrorEntity(description: ""))
 			}
 		}
+	}
+	
+	func didAuthFail() {
+		
 	}
 }

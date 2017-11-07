@@ -72,7 +72,8 @@
 		55D8318F1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D8318E1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift */; };
 		55D831931EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D831921EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift */; };
 		55DC922D1EE34A6300744BA5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DC922C1EE34A6300744BA5 /* LoginView.swift */; };
-		55F31FD51F3CA6E70027F3E6 /* GoogleService-Info-Business.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55F31FD41F3CA6E70027F3E6 /* GoogleService-Info-Business.plist */; };
+		55E324AD1FB1D46F00B2BD61 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E324AC1FB1D46F00B2BD61 /* LocationManager.swift */; };
+		55E324AF1FB1F55400B2BD61 /* GoogleService-Info-Business.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55E324AE1FB1F55400B2BD61 /* GoogleService-Info-Business.plist */; };
 		55F568CE1EF6831100CAB392 /* ViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F568CD1EF6831100CAB392 /* ViewModelCell.swift */; };
 		55F77E3A1ECDC8910094EF0F /* DisplayedItemsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */; };
 		DB7EA1AA8F6F1F93BA1F252A /* Pods_walkdelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07028FD978B83E0F7B66506 /* Pods_walkdelivery.framework */; };
@@ -159,7 +160,8 @@
 		55D8318E1EE2BD8B00989738 /* InitialFlowItemsInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsInteractorTests.swift; sourceTree = "<group>"; };
 		55D831921EE2BDEE00989738 /* InitialFlowItemsPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialFlowItemsPresenterTests.swift; sourceTree = "<group>"; };
 		55DC922C1EE34A6300744BA5 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		55F31FD41F3CA6E70027F3E6 /* GoogleService-Info-Business.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Business.plist"; sourceTree = "<group>"; };
+		55E324AC1FB1D46F00B2BD61 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		55E324AE1FB1F55400B2BD61 /* GoogleService-Info-Business.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Business.plist"; sourceTree = "<group>"; };
 		55F568CD1EF6831100CAB392 /* ViewModelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelCell.swift; sourceTree = "<group>"; };
 		55F77E391ECDC8910094EF0F /* DisplayedItemsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayedItemsPresenter.swift; sourceTree = "<group>"; };
 		55F77E3F1ECDC9950094EF0F /* walkdeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = walkdeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,7 +247,7 @@
 				55F77E4B1ECDCE900094EF0F /* Services */,
 				55F77E351ECDC54B0094EF0F /* Scenes */,
 				555A1F7D1ECB1F5300DA7A73 /* GoogleService-Info-User.plist */,
-				55F31FD41F3CA6E70027F3E6 /* GoogleService-Info-Business.plist */,
+				55E324AE1FB1F55400B2BD61 /* GoogleService-Info-Business.plist */,
 				55696FF01ED93BE00091B98E /* walkdelivery.entitlements */,
 				555A1F6B1ECB1EBB00DA7A73 /* AppDelegate.swift */,
 				555A1F721ECB1EBB00DA7A73 /* Assets.xcassets */,
@@ -389,6 +391,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		55E324AB1FB1D3E700B2BD61 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				55E324AC1FB1D46F00B2BD61 /* LocationManager.swift */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
 		55F77E351ECDC54B0094EF0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +442,7 @@
 		55F77E4B1ECDCE900094EF0F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				55E324AB1FB1D3E700B2BD61 /* LocationService */,
 				55899E471F38A77500DF7A31 /* AuthService */,
 				55899E401F38A6E400DF7A31 /* ItemsStroreService */,
 				55696FEC1ED933CD0091B98E /* ErrorEntity.swift */,
@@ -556,9 +567,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E324AF1FB1F55400B2BD61 /* GoogleService-Info-Business.plist in Resources */,
 				55D8317E1EE2949700989738 /* LaunchXib.xib in Resources */,
 				555A1F7E1ECB1F5300DA7A73 /* GoogleService-Info-User.plist in Resources */,
-				55F31FD51F3CA6E70027F3E6 /* GoogleService-Info-Business.plist in Resources */,
 				555A1F731ECB1EBB00DA7A73 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -676,6 +687,7 @@
 				554C1FC51F3B43F300C00FE3 /* RequestingItemPresenter.swift in Sources */,
 				55D831721EE2870200989738 /* AuthSceneInteractorInterface.swift in Sources */,
 				55D831851EE2A76E00989738 /* InitialFlowItemsPresenter.swift in Sources */,
+				55E324AD1FB1D46F00B2BD61 /* LocationManager.swift in Sources */,
 				55A650EB1EE7E6F200961C40 /* LoginViewModel.swift in Sources */,
 				554C1FBE1F3B40A900C00FE3 /* RootViewControllerAccecable.swift in Sources */,
 				554C1FCB1F3B478F00C00FE3 /* RequestingItemRouterInterface.swift in Sources */,

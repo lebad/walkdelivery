@@ -53,6 +53,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - SnapKit (3.2.0)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Firebase (~> 4.0)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - GoogleMaps
   - Kingfisher (~> 3.0)
   - SnapKit (~> 3.0)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   GeoFire:
@@ -87,7 +89,8 @@ SPEC CHECKSUMS:
   leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8f234e650da6d7f92a6bc067c3d09d98b5eeb998
+PODFILE CHECKSUM: d6edad4ff67e734b66e4c35e485a4a8fb4348441
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.1.1

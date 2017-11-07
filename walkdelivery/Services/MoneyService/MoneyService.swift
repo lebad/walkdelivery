@@ -10,19 +10,20 @@ import Foundation
 import Firebase
 
 
-class MoneyService: MoneyServiceProtocol, FireBaseReferenceAccecable {
-	
-	func getCurrency(_ code: String, completionHandler: @escaping (CurrencyResult<CurrencyEntity>) -> Void) {
-		
-		fireBaseReferenceUser?.child("currencies").child(code).observeSingleEvent(of: .value, with: { snapshot in
-			
-			guard var valueDict = snapshot.value as? [String: Any] else {
-				completionHandler(.Failure(.InnerError))
-				return
-			}
-			valueDict["code"] = snapshot.key
-			let currency = CurrencyEntity(dict: valueDict)
-			completionHandler(.Success(currency))
-		})
-	}
-}
+//class MoneyService: MoneyServiceProtocol {
+//	
+//	func getCurrency(_ code: String, completionHandler: @escaping (CurrencyResult<CurrencyEntity>) -> Void) {
+//		
+//		FireBaseReferenceAccess.singleton.fireBaseReferenceUser?.child("currencies").child(code).observeSingleEvent(of: .value, with: { snapshot in
+//			
+//			guard var valueDict = snapshot.value as? [String: Any] else {
+//				completionHandler(.Failure(.InnerError))
+//				return
+//			}
+//			valueDict["code"] = snapshot.key
+//			let currency = CurrencyEntity(dict: valueDict)
+//			completionHandler(.Success(currency))
+//		})
+//	}
+//}
+
